@@ -269,6 +269,5 @@ $ git tag -d <tagname>
 $ git push origin :refs/tags/<tagname>
 ```
 
-[原文链接https://github.com/hongiii/gitNotes_from_Liao/edit/master/gitNotes_from_Liao.md]
-```链接
-```
+[原文链接](https://github.com/hongiii/gitNotes_from_Liao/edit/master/gitNotes_from_Liao.md)
+
