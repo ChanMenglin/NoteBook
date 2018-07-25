@@ -5,5 +5,5 @@ My NoteBook
 
 ## 目录
 
-2018-07-25
-  [Git 笔记](https://github.com/ChanMenglin/NoteBook/blob/master/2018-07-25%20Git/Git%20笔记.md)
+2018-07-25. 
+       [Git 笔记](https://github.com/ChanMenglin/NoteBook/blob/master/2018-07-25%20Git/Git%20笔记.md)
