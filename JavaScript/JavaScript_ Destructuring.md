@@ -1,10 +1,10 @@
-/* 
- * JavaScriot 解构的用法实例
- * 基于 ES6
- * 2018-08-03
- * http://es6.ruanyifeng.com/#docs/destructuring
- */
-
+---
+ title: JavaScriot 解构的用法实例
+ base: 基于 ES6
+ date: 2018-08-03
+ Url: http://es6.ruanyifeng.com/#docs/destructuring
+ ---
+```js
  // --- 1. 交换变量的值  ---
 
 let x = 1;
@@ -93,3 +93,4 @@ for (let [key] of map) {
   // ---  7. 输入模块的指定方法  ---
 
   const { SourceMapConsumer, SourceNode } = require("source-map");
+```
