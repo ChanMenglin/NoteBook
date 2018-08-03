@@ -6,7 +6,7 @@
 
 # JavaScriot 解构的用法实例
 
-{:toc}
+[toc]
 
 ## 1. 交换变量的值
  
@@ -111,4 +111,4 @@ for (let [key] of map) {
 const { SourceMapConsumer, SourceNode } = require("source-map");
 ```
 
-[原文链接]{http://es6.ruanyifeng.com/#docs/destructuring}
+[原文链接](http://es6.ruanyifeng.com/#docs/destructuring)
