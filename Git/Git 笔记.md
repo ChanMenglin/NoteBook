@@ -4,7 +4,7 @@ type: guide
 order: 0
 ---
 
-# <p align = “center”> Git 笔记 </p>
+# Git 笔记
 ## Git介绍
 - Git是分布式版本控制系统
 - 集中式VS分布式，SVN VS Git
