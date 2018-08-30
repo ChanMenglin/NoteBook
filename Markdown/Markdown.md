@@ -6,6 +6,8 @@ categories: Markdown 语法
 
 # Markdown 语法
 
+本文的写作目的：相信现在有很多人都在使用 Markdown ，但目前 Markdown 的语法支持及说明都不好，因此在本文中归纳整理了一些被广泛支持的 Markdown 语法，如有遗落或错误请各位指正，欢迎补充。
+
 ## 1. 标题
 ```
 # 一级标题
@@ -122,12 +124,12 @@ Markdown 没有原生下划线标记，我们可以使用 **行内HTML**（下�
 
 **列表嵌套**
 ```
-- 1. 第一个序列第一项
+- 1. 第一个序列第一项
    - 1. 第二个序列第一项
    - 2. 第二个序列第二项
 - 2. 第一个序列第二项
 ```
-- 1. 第一个序列第一项
+- 1. 第一个序列第一项
     - 1. 第二个序列第一项
     - 2. 第二个序列第二项
 - 2. 第一个序列第二项
@@ -138,13 +140,13 @@ Markdown 没有原生下划线标记，我们可以使用 **行内HTML**（下�
 ### 3.4 引用
 使用 ```>``` 表示文字引用，本文多用做说明，建议在使用时在 ```>``` 后加一个空格，便于阅读
 
-### 3.5 代码块
+### 3.5 代码块
 **行内代码块**
 使用 `` 代表行内代码块
 ```
 `public static void...`
 ```
-`public static void...`
+`public static void...`  
 **代码块**
 ```
     public static void...
@@ -185,31 +187,25 @@ Markdown 的段落定义是由一个或多个连续的文本组成，中间的�
 全方大的空白&emsp;或&#8195;结束  
 不断行的空白格&nbsp;或&#160;结束  
 
-### 3.9 表格(部分支持)
+### 3.9 表格
 ```
-  | Left align | Center align | Right align |
-    |:-----------|:------------:|------------:|
-    | This       |     This     |         This|
-    | column     |    column    |       column|
-    | will       |     will     |         will|
-    | be         |      be      |           be|
-    | left       |     center   |        right|
-    | aligned    |    aligned   |      aligned|
+| Item      |    Value | Qty  |
+| :-------- | --------:| :--: |
+| Computer  | 1600 USD |  5   |
+| Phone     |   12 USD |  12  |
+| Pipe      |    1 USD | 234  |
 ```
-  | Left align | Center align | Right align |
-    |:-----------|:------------:|------------:|
-    | This       |     This     |         This|
-    | column     |    column    |       column|
-    | will       |     will     |         will|
-    | be         |      be      |           be|
-    | left       |     center   |        right|
-    | aligned    |    aligned   |      aligned|
+| Item      |    Value | Qty  |
+| :-------- | --------:| :--: |
+| Computer  | 1600 USD |  5   |
+| Phone     |   12 USD |  12  |
+| Pipe      |    1 USD | 234  |
 
 ### 3.10 脚注(部分支持)
-Footnote 1 link[^first].
-[^1]: This is a footnote
-[^label]: A footnote on "label"
-[^!DEF]: The definition of a footnote.
+Footnote 1 link[^first].  
+[^1]: This is a footnote  
+[^label]: A footnote on "label"  
+[^!DEF]: The definition of a footnote.  
 
 ### 3.11 Tasklist(部分支持)
 ```
@@ -219,25 +215,28 @@ Footnote 1 link[^first].
 - [ ] Task no-checked
 - [x] Task checked
 
+st->op->cond
+cond(yes)->e
+cond(no)->op
+
 ## 4. 转义字符
-\\ 反斜杠  
-\` 反引号  
-\* 星号  
-\_ 下划线  
-\{\} 大括号  
-\[\] 中括号  
-\(\) 小括号  
-\# 井号  
-\+ 加号  
-\- 减号  
-\. 英文句号  
-\! 感叹号  
+`\\` - \\ 反斜杠  
+`\` - \` 反引号  
+`\*` - \* 星号  
+`\_` - \_ 下划线  
+`\{\}` - \{\} 大括号  
+`\[\]` - \[\] 中括号  
+`\(\)` - \(\) 小括号  
+`\#` - \# 井号  
+`\+` - \+ 加号  
+`\-` - \- 减号  
+`\.` - \. 英文句号  
+`\!` - \! 感叹号  
 > 在转义的字符前加 ```\```
 
 ---
 > 参考链接  
->[https://www.zybuluo.com/xxliixin1993/note/125827#2分级标题]()
-> [https://www.zhihu.com/question/28375977]()
-> [https://blog.csdn.net/u011419965/article/details/50536937]()
->[https://www.appinn.com/markdown/#overview]()
+>[https://www.zybuluo.com/xxliixin1993/note/125827#2分级标题]()  
+> [https://www.zhihu.com/question/28375977]()  >[https://blog.csdn.net/u011419965/article/details/50536937]()  
+>[https://www.appinn.com/markdown/#overview]()  
 >
