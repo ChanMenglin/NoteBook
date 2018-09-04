@@ -823,6 +823,485 @@ Connection to gitserver closed.
 
 ## 5. 公共访问
 
+或许对小型的配置来说最简单的办法就是运行一个静态 web 服务，把它的根目录设定为 Git 仓库所在的位置，然后开启 `post-update` 挂钩。假设仓库处于 `/opt/git` 目录，主机上运行着 Apache 服务。任何 web 服务程序都可以达到相同效果；作为范例，我们将用一些基本的 Apache 设定来展示大体需要的步骤。
+```shell
+# 首先，开启挂钩：
+$ cd project.git
+$ mv hooks/post-update.sample hooks/post-update
+$ chmod a+x hooks/post-update
+# post-update 挂钩内容大致如下：
+$ cat .git/hooks/post-update
+#!/bin/sh
+#
+# An example hook script to prepare a packed repository for use over
+# dumb transports.
+#
+# To enable this hook, rename this file to "post-update".
+#
+
+exec git-update-server-info
+# 意思是当通过 SSH 向服务器推送时，Git 将运行这个 git-update-server-info 命令来更新匿名 HTTP 访问获取数据时所需要的文件。
+# 接下来，在 Apache 配置文件中添加一个 VirtualHost 条目，把文档根目录设为 Git 项目所在的根目录。这里我们假定 DNS 服务已经配置好，会把对 .gitserver 的请求发送到这台主机：
+<VirtualHost *:80>
+    ServerName git.gitserver
+    DocumentRoot /opt/git
+    <Directory /opt/git/>
+        Order allow, deny
+        allow from all
+    </Directory>
+</VirtualHost>
+# 另外，需要把 /opt/git 目录的 Unix 用户组设定为 www-data ，这样 web 服务才可以读取仓库内容，因为运行 CGI 脚本的 Apache 实例进程默认就是以该用户的身份起来的：
+$ chgrp -R www-data /opt/git
+# 重启 Apache 之后，就可以通过项目的 URL 来克隆该目录下的仓库了。
+$ git clone http://git.gitserver/project.git
+```
+这一招可以让你在几分钟内为相当数量的用户架设好基于 HTTP 的读取权限。另一个提供非授权访问的简单方法是开启一个 Git 守护进程，不过这将要求该进程作为后台进程常驻 — 接下来就要讨论这方面的细节。 
+
+## 6. GitWeb
+
+Git 自带一个叫做 GitWeb 的 CGI 脚本，运行效果可以到 [http://git.kernel.org]() 这样的站点体验下  
+
+如果想看看自己项目的效果，不妨用 Git 自带的一个命令，可以使用类似 `lighttpd` 或 `webrick` 这样轻量级的服务器启动一个临时进程。如果是在 Linux 主机上，通常都预装了 `lighttpd` ，可以到项目目录中键入 `git instaweb` 来启动。如果用的是 Mac ，`Leopard` 预装了 Ruby，所以 `webrick` 应该是最好的选择。如果要用 `lighttpd` 以外的程序来启动 `git instaweb`，可以通过 `--httpd` 选项指定：  
+```shell
+$ git instaweb --httpd=webrick
+[2009-02-21 10:02:21] INFO  WEBrick 1.3.1
+[2009-02-21 10:02:21] INFO  ruby 1.8.6 (2008-03-03) [universal-darwin9.0]
+```
+这会在 1234 端口开启一个 HTTPD 服务，随之在浏览器中显示该页，十分简单。关闭服务时，只需在原来的命令后面加上 --stop 选项就可以了：  
+```shell
+$ git instaweb --httpd=webrick --stop
+```
+
+如果需要为团队或者某个开源项目长期运行 GitWeb，那么 CGI 脚本就要由正常的网页服务来运行。一些 Linux 发行版可以通过 apt 或 yum 安装一个叫做 gitweb 的软件包，不妨首先尝试一下。  
+以下介绍手动安装：  
+```shell
+# 手动安装 GitWeb 的流程
+# 首先，你需要 Git 的源码，其中带有 GitWeb，并能生成定制的 CGI 脚本：
+$ git clone git://git.kernel.org/pub/scm/git/git.git
+$ cd git/
+$ make GITWEB_PROJECTROOT="/opt/git" \
+        prefix=/usr gitweb
+$ sudo cp -Rf gitweb /var/www/
+# 注意，通过指定 GITWEB_PROJECTROOT 变量告诉编译命令 Git 仓库的位置。
+# 然后，设置 Apache 以 CGI 方式运行该脚本，添加一个 VirtualHost 配置：
+<VirtualHost *:80>
+    ServerName gitserver
+    DocumentRoot /var/www/gitweb
+    <Directory /var/www/gitweb>
+        Options ExecCGI +FollowSymLinks +SymLinksIfOwnerMatch
+        AllowOverride All
+        order allow,deny
+        Allow from all
+        AddHandler cgi-script cgi
+        DirectoryIndex gitweb.cgi
+    </Directory>
+</VirtualHost>
+# GitWeb 可以使用任何兼容 CGI 的网页服务来运行；如果偏向使用其他 web 服务器，配置也不会很麻烦。
+# 通过 http://gitserver 就可以在线访问仓库了，在 http://git.server 上还可以通过 HTTP 克隆和获取仓库的内容。
+```
+
+## 7. Gitosis
+
+把所有用户的公钥保存在 `authorized_keys` 文件的做法，只能凑和一阵子，当用户数量达到几百人的规模时，管理起来就会十分痛苦。每次改删用户都必须登录服务器不去说，这种做法还缺少必要的权限管理 — 每个人都对所有项目拥有完整的读写权限。  
+Gitosis 就是一套用来管理 `authorized_keys` 文件和实现简单连接限制的脚本。有趣的是，用来添加用户和设定权限的并非通过网页程序，而只是管理一个特殊的 Git 仓库。你只需要在这个特殊仓库内做好相应的设定，然后推送到服务器上，Gitosis 就会随之改变运行策略。  
+
+```shell
+# 用 Linux 服务器架设起来最简单 — 以下例子中，我们使用装有 Ubuntu 8.10 系统的服务器。  
+# Gitosis 的工作依赖于某些 Python 工具，所以首先要安装 Python 的 setuptools 包，在 Ubuntu 上称为 python-setuptools：
+$ apt-get install python-setuptools
+# 接下来，从 Gitosis 项目主页克隆并安装：
+$ git clone https://github.com/tv42/gitosis.git
+$ cd gitosis
+$ sudo python setup.py install
+# 这会安装几个供 Gitosis 使用的工具。默认 Gitosis 会把 /home/git 作为存储所有 Git 仓库的根目录，这没什么不好，不过我们之前已经把项目仓库都放在 /opt/git 里面了，所以为方便起见，我们可以做一个符号连接，直接划转过去，而不必重新配置：
+$ ln -s /opt/git /home/git/repositories
+# Gitosis 将会帮我们管理用户公钥，所以先把当前控制文件改名备份，以便稍后重新添加，准备好让 Gitosis 自动管理 authorized_keys 文件：
+$ mv /home/git/.ssh/authorized_keys /home/git/.ssh/ak.bak
+# 接下来，如果之前把 git 用户的登录 shell 改为 git-shell 命令的话，先恢复 'git' 用户的登录 shell。改过之后，大家仍然无法通过该帐号登录（译注：因为 authorized_keys 文件已经没有了。），不过不用担心，这会交给 Gitosis 来实现。所以现在先打开 /etc/passwd 文件，把这行：
+git:x:1000:1000::/home/git:/usr/bin/git-shell
+# 改回:
+git:x:1000:1000::/home/git:/bin/sh
+# 好了，现在可以初始化 Gitosis 了。你可以用自己的公钥执行 gitosis-init 命令，要是公钥不在服务器上，先临时复制一份：
+$ sudo -H -u git gitosis-init < /tmp/id_dsa.pub
+Initialized empty Git repository in /opt/git/gitosis-admin.git/
+Reinitialized existing Git repository in /opt/git/gitosis-admin.git/
+# 这样该公钥的拥有者就能修改用于配置 Gitosis 的那个特殊 Git 仓库了。接下来，需要手工对该仓库中的 post-update 脚本加上可执行权限：
+$ sudo chmod 755 /opt/git/gitosis-admin.git/hooks/post-update
+# 如果设定过程没出什么差错，现在可以试一下用初始化 Gitosis 的公钥的拥有者身份 SSH 登录服务器，应该会看到类似下面这样：
+$ ssh git@gitserver
+PTY allocation request failed on channel 0
+ERROR:gitosis.serve.main:Need SSH_ORIGINAL_COMMAND in environment.
+  Connection to gitserver closed.
+# 说明 Gitosis 认出了该用户的身份，但由于没有运行任何 Git 命令，所以它切断了连接。那么，现在运行一个实际的 Git 命令 — 克隆 Gitosis 的控制仓库：
+# 在你本地计算机上
+$ git clone git@gitserver:gitosis-admin.git
+# 这会得到一个名为 gitosis-admin 的工作目录，主要由两部分组成：
+$ cd gitosis-admin
+$ find .
+./gitosis.conf # 设置用户、仓库和权限的控制文件
+./keydir # 存所有具有访问权限用户公钥的地方—每人一个
+./keydir/scott.pub
+
+# gitosis.conf 文件的内容，它应该只包含与刚刚克隆的 gitosis-admin 相关的信息：
+$ cat gitosis.conf
+[gitosis]
+
+[group gitosis-admin]
+members = scott
+writable = gitosis-admin
+# 它显示用户 scott — 初始化 Gitosis 公钥的拥有者 — 是唯一能管理 gitosis-admin 项目的人。
+
+# 现在我们来添加一个新项目。为此我们要建立一个名为 mobile 的新段落，在其中罗列手机开发团队的开发者，以及他们拥有写权限的项目。由于 'scott' 是系统中的唯一用户，我们把他设为唯一用户，并允许他读写名为 iphone_project 的新项目：
+[group mobile]
+members = scott
+writable = iphone_project
+# 修改完之后，提交 gitosis-admin 里的改动，并推送到服务器使其生效：
+$ git commit -am 'add iphone_project and mobile group'
+[master 8962da8] add iphone_project and mobile group
+ 1 file changed, 4 insertions(+)
+$ git push origin master
+Counting objects: 5, done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 272 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@gitserver:gitosis-admin.git
+   fb27aec..8962da8  master -> master
+
+# 在新工程 iphone_project 里首次推送数据到服务器前，得先设定该服务器地址为远程仓库。但你不用事先到服务器上手工创建该项目的裸仓库— Gitosis 会在第一次遇到推送时自动创建：
+$ git remote add origin git@gitserver:iphone_project.git
+$ git push origin master
+Initialized empty Git repository in /opt/git/iphone_project.git/
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 230 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@gitserver:iphone_project.git
+ * [new branch]      master -> master
+# 请注意，这里不用指明完整路径（实际上，如果加上反而没用），只需要一个冒号加项目名字即可 — Gitosis 会自动帮你映射到实际位置。
+
+# 要和朋友们在一个项目上协同工作，就得重新添加他们的公钥。不过这次不用在服务器上一个一个手工添加到 ~/.ssh/authorized_keys 文件末端，而只需管理 keydir 目录中的公钥文件。文件的命名将决定在 gitosis.conf 中对用户的标识。现在我们为 John，Josie 和 Jessica 添加公钥：
+$ cp /tmp/id_rsa.john.pub keydir/john.pub
+$ cp /tmp/id_rsa.josie.pub keydir/josie.pub
+$ cp /tmp/id_rsa.jessica.pub keydir/jessica.pub
+# 然后把他们都加进 'mobile' 团队，让他们对 iphone_project 具有读写权限：
+[group mobile]
+members = scott john josie jessica
+writable = iphone_project
+# 如果你提交并推送这个修改，四个用户将同时具有该项目的读写权限。
+# Gitosis 也具有简单的访问控制功能。如果想让 John 只有读权限，可以这样做：
+[group mobile]
+members = scott josie jessica
+writable = iphone_project
+
+[group mobile_ro]
+members = john
+readonly = iphone_project
+# 现在 John 可以克隆和获取更新，但 Gitosis 不会允许他向项目推送任何内容。像这样的组可以随意创建，多少不限，每个都可以包含若干不同的用户和项目。甚至还可以指定某个组为成员之一（在组名前加上 @ 前缀），自动继承该组的成员：
+[group mobile_committers]
+members = scott josie jessica
+
+[group mobile]
+members   = @mobile_committers
+writable  = iphone_project
+
+[group mobile_2]
+members   = @mobile_committers john
+writable  = another_iphone_project
+
+# 如果遇到意外问题，试试看把 loglevel=DEBUG 加到 [gitosis] 的段落（译注：把日志设置为调试级别，记录更详细的运行信息。）。如果一不小心搞错了配置，失去了推送权限，也可以手工修改服务器上的 /home/git/.gitosis.conf 文件 — Gitosis 实际是从该文件读取信息的。它在得到推送数据时，会把新的 gitosis.conf 存到该路径上。所以如果你手工编辑该文件的话，它会一直保持到下次向 gitosis-admin 推送新版本的配置内容为止。
+```
+## 8. Gitolite
+
+最新的[版本](http://sitaramc.github.com/gitolite/progit.html)
+
+Gitolite 是在Git之上的一个授权层，依托 `sshd` 或者 `httpd` 来进行认证。（概括：认证是确定用户是谁，授权是决定该用户是否被允许做他想做的事情）。  
+Gitolite允许你定义访问许可而不只作用于仓库，而同样于仓库中的每个branch和tag name。你可以定义确切的人(或一组人)只能push特定的"refs"(或者branches或者tags)而不是其他人。  
+
+**安装**
+假设git，perl，和一个openssh兼容的ssh服务器已经装好了。在下面的例子里，我们会用git账户在gitserver进行。  
+Gitolite是不同于“服务”的软件 -- 其通过ssh访问, 而且每个在服务器上的userid都是一个潜在的“gitolite主机”。我们在这里描述最简单的安装方法，对于其他方法，请参考其文档。  
+```shell
+# Gitolite 安装
+# 开始，在你的服务器上创建一个名为git的用户，然后以这个用户登录。从你的工作站拷贝你的SSH公钥（也就是你用ssh-keygen默认生成的~/.ssh/id_dsa.pub文件），重命名为<yourname>.pub（我们这里使用scott.pub作为例子）。然后执行下面的命令：
+$ git clone git://github.com/sitaramc/gitolite
+$ gitolite/install -ln
+    # assumes $HOME/bin exists and is in your $PATH
+$ gitolite setup -pk $HOME/scott.pub
+# 最后一个命令在服务器上创建了一个名为gitolite-admin的Git仓库。
+
+# 最后，回到你的工作站，执行git clone git@gitserver:gitolite-admin。然后你就完成了！Gitolite现在已经安装在了服务器上，在你的工作站上，你也有一个名为gitolite-admin的新仓库。你可用通过更改这个仓库以及推送到服务器上来管理你的Gitolite配置。
+```
+
+**定制安装**
+有一些定制安装方法如果你用的上的话。一些设置可以通过编辑rc文件来简单地改变，但是如果这个不够，有关于定制Gitolite的文档供参考。  
+
+1. 配置文件和访问规则  
+
+安装结束后，你切换到gitolite-admin仓库（放在你的HOME目录）然后看看都有啥：
+```shell
+$ cd ~/gitolite-admin/
+$ ls
+conf/  keydir/
+$ find conf keydir -type f
+conf/gitolite.conf
+keydir/scott.pub
+$ cat conf/gitolite.conf
+
+repo gitolite-admin
+    RW+                 = scott
+
+repo testing
+    RW+                 = @all
+```
+注意 "scott" ( 之前用 `gl-setup` 命令时候的 `pubkey` 名稱) 有读写权限而且在 `gitolite-admin` 仓库里有一个同名的公钥文件。  
+
+添加用户很简单。为了添加一个名为 `alice` 的用户，获取她的公钥，命名为 `alice.pub`，然后放到在你工作站上的 `gitolite-admin` 克隆的 `keydir` 目录。添加，提交，然后推送更改。这样用户就被添加了。  
+`gitolite` 配置文件的语法在 `conf/example.conf` 里，我们只会提到一些主要的。  
+你可以给用户或者仓库分组。分组名就像一些宏；定义的时候，无所谓他们是工程还是用户；区别在于你使用“宏”的时候  
+```
+@oss_repos      = linux perl rakudo git gitolite
+@secret_repos   = fenestra pear
+
+@admins         = scott
+@interns        = ashok
+@engineers      = sitaram dilbert wally alice
+@staff          = @admins @engineers @interns
+```
+你可以控制许可在”ref“级别。在下面的例子里，实习生可以push ”int“分支。工程师可以push任何有"eng-"开头的branch，还有refs/tags下面用"rc"开头的后面跟数字的。而且管理员可以随便更改(包括rewind)对任何参考名。  
+```
+repo @oss_repos
+    RW  int$                = @interns
+    RW  eng-                = @engineers
+    RW  refs/tags/rc[0-9]   = @engineers
+    RW+                     = @admins
+```
+在 `RW` or `RW+` 之后的表达式是正则表达式(regex)对应着后面的 push 用的参考名字(ref)。所以我们叫它”参考正则“（refex）！当然，一个 refex 可以比这里表现的更强大，所以如果你对 perl 的正则表达式不熟的话就不要改过头。  
+
+同样，你可能猜到了，Gitolite 字头 `refs/heads/` 是一个便捷句法如果参考正则没有用 `refs/` 开头。  
+
+一个这个配置文件语法的重要功能是，所有的仓库的规则不需要在同一个位置。你能报所有普通的东西放在一起，就像上面的对所有 oss_repos 的规则那样，然后建一个特殊的规则对后面的特殊案例，就像：  
+```
+repo gitolite
+    RW+                     = sitaram
+```
+那条规则刚刚加入规则集的 gitolite 仓库.  
+
+这次你可能会想要知道访问控制规则是如何应用的，我们简要介绍一下。  
+在gitolite里有两级访问控制。第一是在仓库级别；如果你已经读或者写访问过了任何在仓库里的参考，那么你已经读或者写访问仓库了。  
+第二级，应用只能写访问，通过在仓库里的 branch 或者 tag。用户名如果尝试过访问 (`W`或`+`)，参考名被更新为已知。访问规则检查是否出现在配置文件里，为这个联合寻找匹配 (但是记得参考名是正则匹配的，不是字符串匹配的)。如果匹配被找到了，push 就成功了。不匹配的访问会被拒绝。  
+
+2. 带'拒绝'的高级访问控制  
+
+目前，我们只看过了许可是 `R` , `RW`, 或者RW+这样子的。但是 gitolite 还允许另外一种许可：`-`，代表 ”拒绝“。这个给了你更多的能力，当然也有一点复杂，因为不匹配并不是唯一的拒绝访问的方法，因此规则的顺序变得无关了！  
+在前面的情况中，我们想要工程师可以 rewind 任意 branch 除了 master 和 integ 。 这里是如何做到的
+```
+    RW  master integ    = @engineers
+    -   master integ    = @engineers
+    RW+                 = @engineers
+```
+你再一次简单跟随规则从上至下知道你找到一个匹配你的访问模式的，或者拒绝。非rewind push到master或者integ 被第一条规则允许。一个rewind push到那些refs不匹配第一条规则，掉到第二条，因此被拒绝。任何push(rewind或非rewind)到参考或者其他master或者integ不会被前两条规则匹配，即被第三条规则允许。  
+
+3. 通过改变文件限制 push  
+
+此外限制用户push改变到哪条branch的，你也可以限制哪个文件他们可以碰的到。  
+可能 Makefile (或者其他哪些程序) 真的不能被任何人做任何改动，你可以告诉 gitolite:  
+```
+repo foo
+    RW                      =   @junior_devs @senior_devs
+
+    -   VREF/NAME/Makefile  =   @junior_devs
+```
+4. 个人分支  
+
+Gitolite也支持一个叫”个人分支“的功能 (或者叫, ”个人分支命名空间“) 在合作环境里非常有用。  
+在 git世界里许多代码交换通过”pull“请求发生。然而在合作环境里，委任制的访问是‘绝不’，一个开发者工作站不能认证，你必须push到中心服务器并且叫其他人从那里pull。  
+这个通常会引起一些branch名称簇变成像 VCS里一样集中化，加上设置许可变成管理员的苦差事。  
+Gitolite让你定义一个”个人的“或者”乱七八糟的”命名空间字首给每个开发人员(比如， `refs/personal/<devname>/*`)；
+
+
+5. "通配符" 仓库  
+
+Gitolite 允许你定义带通配符的仓库(其实还是perl正则式), 比如 `assignments/s[0-9][0-9]/a[0-9][0-9]`。 这是一个非常有用的功能，需要通过设置`$GL_WILDREPOS = 1`; 在 rc 文件中启用。允许你安排一个新许可模式("C")允许用户创建仓库基于通配符，自动分配拥有权对特定用户 - 创建者，允许他交出 R和 RW许可给其他合作用户等等。这个功能在`doc/4-wildcard-repositories.mkd` 文档里  
+
+6. 其他功能  
+
+**记录**: Gitolite 记录所有成功的访问。如果你太放松给了别人 rewind 许可 (RW+) 和其他人弄没了 "master"， 记录文件会救你的命，如果其他简单快速的找到 SHA 都不管用。  
+
+**访问权报告**: 另一个方便的功能是你尝试用 ssh 连接到服务器的时候发生了什么。Gitolite 告诉你哪个 repos你访问过，那个访问可能是什么。这里是例子：
+```
+   hello scott, this is git@git running gitolite3 v3.01-18-g9609868 on git 1.7.4.4
+
+         R     anu-wsd
+         R     entrans
+         R  W  git-notes
+         R  W  gitolite
+         R  W  gitolite-admin
+         R     indic_web_input
+         R     shreelipi_converter
+```
+**委托**：真正的大安装，你可以把责任委托给一组仓库给不同的人然后让他们独立管理那些部分。这个减少了主管理者的负担，让他瓶颈更小。这个功能在他自己的文档目录里的 doc/下面。
+
+**镜像**: Gitolite 可以帮助你维护多个镜像，如果主服务器挂掉的话在他们之间很容易切换。
+
+## 9. Git 守护进程  
+
+对于提供公共的，非授权的只读访问，我们可以抛弃 HTTP 协议，改用 Git 自己的协议，这主要是出于性能和速度的考虑。Git 协议远比 HTTP 协议高效，因而访问速度也快，所以它能节省很多用户的时间。  
+这一点只适用于非授权的只读访问。如果建在防火墙之外的服务器上，那么它所提供的服务应该只是那些公开的只读项目。如果是在防火墙之内的服务器上，可用于支撑大量参与人员或自动系统（用于持续集成或编译的主机）只读访问的项目，这样可以省去逐一配置 SSH 公钥的麻烦。  
+
+但不管哪种情形，Git 协议的配置设定都很简单。基本上，只要以守护进程的形式运行该命令即可：  
+```shell
+git daemon --reuseaddr --base-path=/opt/git/ /opt/git/
+# 这里的 --reuseaddr 选项表示在重启服务前，不等之前的连接超时就立即重启。而 --base-path 选项则允许克隆项目时不必给出完整路径。最后面的路径告诉 Git 守护进程允许开放给用户访问的仓库目录。假如有防火墙，则需要为该主机的 9418 端口设置为允许通信。
+```
+以守护进程的形式运行该进程的方法有很多，但主要还得看用的是什么操作系统。在 Ubuntu 主机上，可以用 Upstart 脚本达成。编辑该文件：  
+```shell
+/etc/event.d/local-git-daemon
+# 加以下内容
+start on startup
+stop on shutdown
+exec /usr/bin/git daemon \
+    --user=git --group=git \
+    --reuseaddr \
+    --base-path=/opt/git/ \
+    /opt/git/
+respawn
+```
+出于安全考虑，强烈建议用一个对仓库只有读取权限的用户身份来运行该进程 — 只需要简单地新建一个名为 `git-ro` 的用户（译注：新建用户默认对仓库文件不具备写权限，但这取决于仓库目录的权限设定。务必确认  `git-ro` 对仓库只能读不能写。），并用它的身份来启动进程。  
+
+这样一来，当你重启计算机时，Git 进程也会自动启动。要是进程意外退出或者被杀掉，也会自行重启。在设置完成后，不重启计算机就启动该守护进程，可以运行：  
+```shell
+initctl start local-git-daemon
+```
+而在其他操作系统上，可以用 xinetd，或者 sysvinit 系统的脚本，或者其他类似的脚本 — 只要能让那个命令变为守护进程并可监控。  
+
+我们必须告诉 Gitosis 哪些仓库允许通过 Git 协议进行匿名只读访问。如果每个仓库都设有各自的段落，可以分别指定是否允许 Git 进程开放给用户匿名读取。比如允许通过 Git 协议访问 iphone_project，可以把下面两行加到 gitosis.conf 文件的末尾：  
+```
+[repo iphone_project]
+daemon = yes
+```
+在提交和推送完成后，运行中的 Git 守护进程就会响应来自 9418 端口对该项目的访问请求。  
+
+如果不考虑 Gitosis，单单起了 Git 守护进程的话，就必须到每一个允许匿名只读访问的仓库目录内，创建一个特殊名称的空文件作为标志：  
+```shell
+$ cd /path/to/project.git
+$ touch git-daemon-export-ok
+```
+该文件的存在，表明允许 Git 守护进程开放对该项目的匿名只读访问。  
+
+Gitosis 还能设定哪些项目允许放在 `GitWeb` 上显示。先打开 `GitWeb` 的配置文件 `/etc/gitweb.conf`，添加以下四行：  
+```
+$projects_list = "/home/git/gitosis/projects.list";
+$projectroot = "/home/git/repositories";
+$export_ok = "git-daemon-export-ok";
+@git_base_url_list = ('git://gitserver');
+```
+
+接下来，只要配置各个项目在 Gitosis 中的 `gitweb` 参数，便能达成是否允许 GitWeb 用户浏览该项目。比如，要让 iphone_project 项目在 `GitWeb` 里出现，把 repo 的设定改成下面的样子：  
+```
+[repo iphone_project]
+daemon = yes
+gitweb = yes
+```
+在提交并推送过之后，GitWeb 就会自动开始显示 iphone_project 项目的细节和历史。  
+
+## 10. Git 托管服务  
+
+托管服务列表：[https://git.wiki.kernel.org/index.php/GitHosting]()
+
+# 分布式 Git  
+
+接下来，我们要学习下如何利用 Git 来组织和完成分布式工作流程。  
+
+## 1. 分布式工作流程  
+
+在 Git 网络中，每个开发者同时扮演着节点和集线器的角色，这就是说，每一个开发者都可以将自己的代码贡献到另外一个开发者的仓库中，或者建立自己的公共仓库，让其他开发者基于自己的工作开始，为自己的仓库贡献代码。于是，Git 的分布式协作便可以衍生出种种不同的工作流程。
+
+### 1. 集中式工作流  
+
+集中式工作流程使用的都是单点协作模型。一个存放代码仓库的中心服务器，可以接受所有开发者提交的代码。所有的开发者都是普通的节点，作为中心集线器的消费者，平时的工作就是和中心仓库同步数据。  
+
+如果两个开发者从中心仓库克隆代码下来，同时作了一些修订，那么只有第一个开发者可以顺利地把数据推送到共享服务器。第二个开发者在提交他的修订之前，必须先下载合并服务器上的数据，解决冲突之后才能推送数据到共享服务器上。在 Git 中这么用也决无问题，这就好比是在用 Subversion（或其他 CVCS）一样，可以很好地工作。
+
+如果你的团队不是很大，或者大家都已经习惯了使用集中式工作流程，完全可以采用这种简单的模式。只需要配置好一台中心服务器，并给每个人推送数据的权限，就可以开展工作了。但如果提交代码时有冲突， Git 根本就不会让用户覆盖他人代码，它直接驳回第二个人的提交操作。这就等于告诉提交者，你所作的修订无法通过快进（fast-forward）来合并，你必须先拉取最新数据下来，手工解决冲突合并后，才能继续推送新的提交。 绝大多数人都熟悉和了解这种模式的工作方式，所以使用也非常广泛。 
+
+### 2. 集成管理员工作流
+
+由于 Git 允许使用多个远程仓库，开发者便可以建立自己的公共仓库，往里面写数据并共享给他人，而同时又可以从别人的仓库中提取他们的更新过来。这种情形通常都会有个代表着官方发布的项目仓库（blessed repository），开发者们由此仓库克隆出一个自己的公共仓库（developer public），然后将自己的提交推送上去，请求官方仓库的维护者拉取更新合并到主项目。维护者在自己的本地也有个克隆仓库（integration manager），他可以将你的公共仓库作为远程仓库添加进来，经过测试无误后合并到主干分支，然后再推送到官方仓库。 
+
+1. 项目维护者可以推送数据到公共仓库 blessed repository
+2. 贡献者克隆此仓库，修订或编写新代码。
+3. 贡献者推送数据到自己的公共仓库 developer public
+4. 贡献者给维护者发送邮件，请求拉取自己的最新修订
+5. 维护者在自己本地的 integration manger 仓库中 将贡献者的仓库加为远程仓库，合并更新并做测试
+6. 维护者将合并后的更新推送到主仓库 blessed repository  
+
+在 GitHub 网站上使用得最多的就是这种工作流。人们可以复制（fork 亦即克隆）某个项目到自己的列表中，成为自己的公共仓库。随后将自己的更新提交到这个仓库，所有人都可以看到你的每次更新。这么做最主要的优点在于，你可以按照自己的节奏继续工作，而不必等待维护者处理你提交的更新；而维护者也可以按照自己的节奏，任何时候都可以过来处理接纳你的贡献。
+
+### 3. 司令官与副官工作流  
+
+这其实是上一种工作流的变体。一般超大型的项目才会用到这样的工作方式，像是拥有数百协作开发者的 Linux 内核项目就是如此。各个集成管理员分别负责集成项目中的特定部分，所以称为副官（lieutenant）。而所有这些集成管理员头上还有一位负责统筹的总集成管理员，称为司令官（dictator）。司令官维护的仓库用于提供所有协作者拉取最新集成的项目代码。  
+
+1. 一般的开发者在自己的特性分支上工作，并不定期地根据主干分支（dictator 上的 master）衍合。
+2. 副官（lieutenant）将普通开发者的特性分支合并到自己的 master 分支中。
+3. 司令官（dictator）将所有副官的 master 分支并入自己的 master 分支。
+4. 司令官（dictator）将集成后的 master 分支推送到共享仓库 blessed repository 中，以便所有其他开发者以此为基础进行衍合。  
+
+这种工作流程并不常用，只有当项目极为庞杂，或者需要多级别管理时，才会体现出优势。利用这种方式，项目总负责人（即司令官）可以把大量分散的集成工作委托给不同的小组负责人分别处理，最后再统筹起来，如此各人的职责清晰明确，也不易出错（译注：此乃分而治之）。  
+
+## 2. 为项目作贡献  
+
+作为项目贡献者，有哪些常见的工作模式。  
+Git 如此灵活，人们的协作方式便可以各式各样，没有固定不变的范式可循，而每个项目的具体情况又多少会有些不同，比如说参与者的规模，所选择的工作流程，每个人的提交权限，以及 Git 以外贡献等等，都会影响到具体操作的细节。  
+1. 提交指南  
+
+开始分析特定用例之前，先来了解下如何撰写提交说明。一份好的提交指南可以帮助协作者更轻松更有效地配合。Git 项目本身就提供了一份文档（Git 项目源代码目录中  [Documentation/SubmittingPatches](https://github.com/git/git/blob/master/Documentation/SubmittingPatches)），列数了大量提示，从如何编撰提交说明到提交补丁，不一而足。
+
+1. 请不要在更新中提交多余的白字符（whitespace）。Git 有种检查此类问题的方法，在提交之前，先运行 `git diff --check`，会把可能的多余白字符修正列出来。下面的示例，我已经把终端中显示为红色的白字符用 X 替换掉：
+```shell
+$ git diff --check
+lib/simplegit.rb:5: trailing whitespace.
++    @git_dir = File.expand_path(git_dir)XX
+lib/simplegit.rb:7: trailing whitespace.
++ XXXXXXXXXXX
+lib/simplegit.rb:26: trailing whitespace.
++    def command(git_cmd)XXXX
+```
+2. 请将每次提交限定于完成一次逻辑功能。并且可能的话，适当地分解为多次小更新，以便每次小型提交都更易于理解。
+请不要在周末穷追猛打一次性解决五个问题，而最后拖到周一再提交。就算是这样也请尽可能利用暂存区域，将之前的改动分解为每次修复一个问题，再分别提交和加注说明。如果针对两个问题改动的是同一个文件，可以试试看 `git add --patch` 的方式将部分内容置入暂存区域。无论是五次小提交还是混杂在一起的大提交，最终分支末端的项目快照应该还是一样的，但分解开来之后，更便于其他开发者复阅。这么做也方便自己将来取消某个特定问题的修复。
+3. 提交说明的撰写。写得好可以让大家协作起来更轻松。一般来说，提交说明最好限制在一行以内，50 个字符以下，简明扼要地描述更新内容，空开一行后，再展开详细注解。Git 项目本身需要开发者撰写详尽注解，包括本次修订的因由，以及前后不同实现之间的比较，我们也该借鉴这种做法。另外，提交说明应该用祈使现在式语态，比如，不要说成 “I added tests for” 或 “Adding tests for” 而应该用 “Add tests for”。 下面是来自 tpope.net 的 Tim Pope 原创的提交说明格式模版，供参考：
+```
+本次更新的简要描述（50 个字符以内）
+
+如果必要，此处展开详尽阐述。段落宽度限定在 72 个字符以内。
+某些情况下，第一行的简要描述将用作邮件标题，其余部分作为邮件正文。
+其间的空行是必要的，以区分两者（当然没有正文另当别论）。
+如果并在一起，rebase 这样的工具就可能会迷惑。
+
+另起空行后，再进一步补充其他说明。
+
+ - 可以使用这样的条目列举式。
+
+ - 一般以单个空格紧跟短划线或者星号作为每项条目的起始符。每个条目间用一空行隔开。
+   不过这里按自己项目的约定，可以略作变化。
+```
+
+2. 私有的小型团队  
+
+一个私有项目，与你一起协作的还有另外一到两位开发者。这里说私有，是指源代码不公开，其他人无法访问项目仓库。而你和其他开发者则都具有推送数据到仓库的权限。这种情况下，你们可以用 Subversion 或其他集中式版本控制系统类似的工作流来协作。你仍然可以得到 Git 带来的其他好处：离线提交，快速分支与合并等等，但工作流程还是差不多的。主要区别在于，合并操作发生在客户端而非服务器上。  
+3. 私有团队间协作  
+
+如果有几个小组分头负责若干特性的开发和集成，那他们之间的协作过程是怎样的。使用典型的集成管理员式工作流，每个组都有一名管理员负责集成本组代码，及更新项目主仓库的 master 分支。所有开发都在代表小组的分支上进行。
+
+4. 公开的小型项目  
+
+要给公开项目作贡献，情况就有些不同了。因为你没有直接更新主仓库分支的权限，得寻求其它方式把工作成果交给项目维护人。下面会介绍两种方法，第一种使用 git 托管服务商提供的仓库复制功能，一般称作 fork，比如 repo.or.cz 和 GitHub 都支持这样的操作，而且许多项目管理员都希望大家使用这样的方式。另一种方法是通过电子邮件寄送文件补丁。但不管哪种方式，起先我们总需要克隆原始仓库，而后创建特性分支开展工作。
+
+5. 公开的大型项目  
+
+许多大型项目都会立有一套自己的接受补丁流程，你应该注意下其中细节。但多数项目都允许通过开发者邮件列表接受补丁。整个工作流程类似上面的情形：为每个补丁创建独立的特性分支，而不同之处在于如何提交这些补丁。不需要创建自己可写的公共仓库，也不用将自己的更新推送到自己的服务器，你只需将每次提交的差异内容以电子邮件的方式依次发送到邮件列表中即可。
+
+## 3. 项目的管理
+
+http://iissnan.com/progit/html/zh/ch5_3.html
 
 # 约定
 
