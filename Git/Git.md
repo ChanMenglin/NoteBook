@@ -21,7 +21,6 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
 
 3. [Git 基本用法](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#git-基本用法)
     * [查看帮助](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#1-查看帮助)
-    * [查看帮助](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#1-查看帮助)
     * [取得项目的 Git 仓库](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#2-取得项目的-Git-仓库)
     * [记录每次更新到仓库](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#3-记录每次更新到仓库)
     * [提交更新](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#4-提交更新)
