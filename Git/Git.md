@@ -9,16 +9,35 @@ Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个�
 Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。
 
 1. [安装 Git](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#安装-git)
-    1. [从源代码安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#1-从源代码安装)
-    2. [在 Linux 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#2-在-linux-上安装)
-    3. [在 Mac 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#3-在-mac-上安装)
-    4. [在 Windows 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#4-在-windows-上安装)
+    * [从源代码安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#1-从源代码安装)
+    * [在 Linux 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#2-在-linux-上安装)
+    * [在 Mac 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#3-在-mac-上安装)
+    * [在 Windows 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#4-在-windows-上安装)
 
-2. Git 首次使用前的配置  
+2. [Git 首次使用前的配置](https://github.com/ChanMenglin/NoteBook/blob/master/Git/2.%20Git%20首次使用前的配置.md#初次运行-Git-前的配置)
+    * [文本编辑器](https://github.com/ChanMenglin/NoteBook/blob/master/Git/2.%20Git%20首次使用前的配置.md#用户信息)
+    * [文本编辑器](https://github.com/ChanMenglin/NoteBook/blob/master/Git/2.%20Git%20首次使用前的配置.md#文本编辑器)
+    * [差异分析工具](https://github.com/ChanMenglin/NoteBook/blob/master/Git/2.%20Git%20首次使用前的配置.md#差异分析工具)  
 
-一般在新的系统上，我们都需要先配置下自己的 Git 工作环境。配置工作只需一次，以后升级时还会沿用现在的配置。当然，如果需要，你随时可以用相同的命令修改已有的配置。  
+
+3. [Git 基本用法](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#Git-基本用法)
+    * [查看帮助](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#查看帮助)
+    * [取得项目的 Git 仓库](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#取得项目的-Git-仓库)
+    * [记录每次更新到仓库](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#记录每次更新到仓库)
+    * [提交更新](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#提交更新)
+    * [查看提交历史](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#查看提交历史)
+    * [撤销操作](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#撤销操作)
+    * [远程仓库的使用](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#远程仓库的使用)
+    * [打标签](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#打标签)
+    * [Git 实用技巧](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#Git-实用技巧)
+* [Git 分支](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#Git-分支)
+    * [分支的基本操作](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#分支的基本操作)
+    * [利用分支进行开发的流程](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#利用分支进行开发的流程)
+    * [远程分支](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#远程分支)
+    * [分支的衍合](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20首次使用前的配置.md#分支的衍合)
 
 
+<!--
 3. Git 基本用法
 
 
@@ -49,7 +68,7 @@ Git 最为重要的特性之一是名为 `git svn` 的 Subversion 双向桥接�
 
 
 
-<!--
+
 # 约定
 
 
