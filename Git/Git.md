@@ -28,7 +28,7 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
     * [撤销操作](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#6-撤销操作)
     * [远程仓库的使用](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#7-远程仓库的使用)
     * [打标签](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#8-打标签)
-    * [Git 实用技巧](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#9-git-实用技巧)
+    * [Git 实用技巧](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#git-实用技巧)
 * [Git 分支](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#git-分支)
     * [分支的基本操作](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#1-分支的基本操作)
     * [利用分支进行开发的流程](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#2-利用分支进行开发的流程)
