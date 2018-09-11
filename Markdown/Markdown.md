@@ -90,8 +90,9 @@ Markdown 没有原生下划线标记，我们可以使用 **行内HTML**（下�
 [链接名](识别链接的标记)
 ```
 [链接名](链接地址“标题”)
-[百度](www.baidu.com)
-> 如果链接名与链接地址一致则可以这样写：[链接地址](),链接地址会直接显示在页面上
+[百度](https://www.baidu.com)
+> 如果链接名与链接地址一致则可以这样写：<链接地址>,链接地址会直接显示在页面上(电子邮件地址也可以使用这种方式展示)
+<https://www.baidu.com>
 
 ### 3.2 图片
 ```
@@ -271,8 +272,9 @@ cond(no)->op
 
 ---
 > 参考链接  
-> [https://www.zybuluo.com/xxliixin1993/note/125827#2分级标题](https://www.zybuluo.com/xxliixin1993/note/125827#2分级标题)  
-> [https://www.zhihu.com/question/28375977](https://www.zhihu.com/question/28375977)  
-> [https://blog.csdn.net/u011419965/article/details/50536937](https://blog.csdn.net/u011419965/article/details/50536937)  
-> [https://www.appinn.com/markdown/#overview](https://www.appinn.com/markdown/#overview)  
+> <https://www.zybuluo.com/xxliixin1993/note/125827#2分级标题>  
+> <https://www.zhihu.com/question/28375977>  
+> <https://blog.csdn.net/u011419965/article/details/50536937>  
+> <https://www.appinn.com/markdown/#overview>    
+> <https://www.w3cschool.cn/markdownyfsm/cbx1e7.html>
 
