@@ -10,7 +10,7 @@ categories: Git 常用命令 速查手册
 
 # 针对人群
 
-本文主要以查询手册为出发点，对 Git 常用命令进行整理，本文默认你已经了解 Git 版本控制，并会使用。如果你对以上所述还不了解，或是还为接触过 Git 版本控制可以去查看相关资料进一步学习，这篇文章不适合你。  
+本文主要以查询手册为出发点，对 Git 常用命令进行整理，本文默认你已经了解 Git 版本控制，并会使用。如果你对以上所述还不了解，或是还为接触过 Git 版本控制可以去查看相关资料进一步学习，这篇文章不适合你。  
 
 # Git 命令
  
@@ -234,7 +234,7 @@ categories: Git 常用命令 速查手册
 `git remote show <remote>` 显示子模块信息  
 
 ### 新增子模块  
-请注意您选择的子模块名称：如果使用正斜杠（/），git会认为您要删除子模块并希望添加子模块目录中的所有文件。 请不要在子模块名称后面使用正斜杠。  
+请注意您选择的子模块名称：如果使用正斜杠（/），git会认为您要删除子模块并希望添加子模块目录中的所有文件。请不要在子模块名称后面使用正斜杠。  
 1. 执行 `git submodule add -b <branch> --name <name> <repository-path-or-url>`
 2. 将 `.gitmodule` 文件和子模块文件夹添加到上层项目索引中  
 3. 提交上层项目上的两个文件  
@@ -250,7 +250,7 @@ categories: Git 常用命令 速查手册
 `git clone --recurse-submodules ssh://user@domain.tld/repo.git`
 或
 1. 向往常一样克隆项目
-2. 执行 `git submodule init` 初始化子模块
+2. 执行 `git submodule init` 初始化子模块
 3. 运行 `git submodule update` 让子模块在分离的HEAD上
 
 `git diff --submodule` 查看子模块的所有变更  
