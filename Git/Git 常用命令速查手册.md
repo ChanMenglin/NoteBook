@@ -18,7 +18,7 @@ categories: Git 常用命令 速查手册
 
 `git --help` 查看帮助  
 `-a/--all` 显示全部 Git 命令  
-`<Git 命令>` 显示相关命令的手册页  
+`<Git 命令>` 显示相关命令的手册页  
 
 ## Git 配置
 
