@@ -4,7 +4,7 @@ date: 2018-08-30 09:45:00 +0800
 categories: Git 版本控制
 ---
 
-> Git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
+> Git 是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。
 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
 Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。
 
@@ -28,8 +28,8 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
     * [撤销操作](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#6-撤销操作)
     * [远程仓库的使用](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#7-远程仓库的使用)
     * [打标签](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#8-打标签)
-    * [Git 实用技巧](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#9-git-实用技巧)
-* [Git 分支](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#git-分支)
+    * [Git 实用技巧](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#git-实用技巧)
+4. [Git 分支](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#git-分支)
     * [分支的基本操作](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#1-分支的基本操作)
     * [利用分支进行开发的流程](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#2-利用分支进行开发的流程)
     * [远程分支](https://github.com/ChanMenglin/NoteBook/blob/master/Git/3.%20Git%20基本用法.md#3-远程分支)
