@@ -68,13 +68,13 @@ categories: Git 常用命令 速查手册
 ### Git 配置常用命令
 
 `git config --global user.name "<name>"` 设置要附加到提交事务的名称  
- `git config --global user.email "<email address>"` 设置要附加到提交事务的电子邮件  
- `git config --global color.ui auto` 启用命令行输出的有用颜色  
+`git config --global user.email "<email address>"` 设置要附加到提交事务的电子邮件  
+`git config --global color.ui auto` 启用命令行输出的有用颜色  
 
  ## 创建仓库
 
-`git init` 创建新本地仓库
- `git init <project-name>` 创建具有指定名称的新本地仓库  
+`git init` 创建新本地仓库  
+`git init <project-name>` 创建具有指定名称的新本地仓库  
 `git clone <url>` 克隆仓库  
 `git clone --recurse-submodules <url>`以递归方式克隆现有仓库及其所有子模块  
 
@@ -155,11 +155,11 @@ categories: Git 常用命令 速查手册
 
 `git log --grep=<string>` 搜索（grep）提交给定字符串的消息  
 `git blame <file>` 谁在何时更改了文件中的那些内容  
- `git show [commit]` 输出指定提交的元数据和内容更改
+`git show [commit]` 输出指定提交的元数据和内容更改
 
  几种不错的提交历史显示格式：
 * `git log --pretty=format:"%h - %an, %ar : %s"`
-* ` git log --pretty=format:"%h %s" --graph`
+* `git log --pretty=format:"%h %s" --graph`
 
  ## 分支  
 
@@ -240,7 +240,7 @@ categories: Git 常用命令 速查手册
 3. 提交上层项目上的两个文件  
 
 ### 删除子模块
-1. 从`.gitmodules` 文件中删除相关行  
+1. 从`.gitmodules` 文件中删除相关行  
 2. 从 `.git/config` 中删除相关部分
 3. 执行 `git rm --cached <submodule-path> (no trailing slash)`
 4. 提交上层项目
@@ -248,45 +248,17 @@ categories: Git 常用命令 速查手册
 
 ### 克隆一个带有子模块的项目
 `git clone --recurse-submodules ssh://user@domain.tld/repo.git`
-或
+或
 1. 向往常一样克隆项目
 2. 执行 `git submodule init` 初始化子模块
 3. 运行 `git submodule update` 让子模块在分离的HEAD上
 
-`git diff --submodule` 查看子模块的所有变更  
+`git diff --submodule` 查看子模块的所有变更  
 `git submodule update --remote`将子模块更新为其各自分支上的最新更改  
 `git submodule update --remote <submodule-name>` 将特定子模块更新为其分支上的最新更改  
 `git push --recurse-submodules=check` 仅当同时推送所有子模块时，才将更改推送到上层项目  
 `git push --recurse-submodules=on-demand` 将更改推送到子模块，然后推送上层项目更改  
 `git submodule foreach '<arbitrary-command-to-run>'` 在每个子模块上运行任意命令  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---
