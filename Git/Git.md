@@ -8,6 +8,11 @@ categories: Git 版本控制
 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。
 Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。
 
+[Git 常用命令速查手册](https://github.com/ChanMenglin/NoteBook/blob/master/Git/Git%20常用命令速查手册.md)  
+本文主要以查询手册为出发点，对 Git 常用命令进行整理，本文默认你已经了解 Git 版本控制，并会使用。如果你对以上所述还不了解，或是还为接触过 Git 版本控制可以去查看相关资料进一步学习，你可以阅读以下 **Git 详解** 的内容。
+
+Git 详解  
+
 * [安装 Git](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#安装-git)
     * [从源代码安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#1-从源代码安装)
     * [在 Linux 上安装](https://github.com/ChanMenglin/NoteBook/blob/master/Git/1.%20Git%20安装.md#2-在-linux-上安装)
@@ -94,37 +99,6 @@ Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分�
 
 <!--
 
-4. 服务器上的 Git
-
-架设一台 Git 服务器并不难。第一步是选择与服务器通讯的协议。远程仓库通常只是一个裸仓库（bare repository） — 即一个没有当前工作目录的仓库。因为该仓库只是一个合作媒介，所以不需要从硬盘上取出最新版本的快照；仓库里存放的仅仅是 Git 的数据。简单地说，裸仓库就是你工作目录中 `.git` 子目录内的内容。
-
-
-5. Git 在实际工作中的使用
-
-利用 Git 来组织和完成分布式工作流程。  
-
-
-6. 自定义 Git  
-
-7. Git 与其他系统  
-
-Git 最为重要的特性之一是名为 `git svn` 的 Subversion 双向桥接工具。该工具把 Git 变成了 Subversion 服务的客户端，从而让你在本地享受到 Git 所有的功能，而后直接向 Subversion 服务器推送内容，仿佛在本地使用了 Subversion 客户端。也就是说，在其他人忍受古董的同时，你可以在本地享受分支合并，使暂存区域，衍合以及 单项挑拣等等。  
-
-
-
-8. Git 内部原理  
-
-由于这些内容对于初学者来说可能难以理解且过于复杂。你在学习过程中可以先阅读这部分，也可以晚点阅读这部分，这完全取决于你自己。  
-
-既然已经读到这了，就让我们开始吧。首先要弄明白一点，从根本上来讲 Git 是一套内容寻址 (content-addressable) 文件系统，在此之上提供了一个 VCS 用户界面。  
-
-
-
-
-
-# 约定
-
-
 # 命令详解
 
 ## Diff
@@ -145,6 +119,10 @@ Git 最为重要的特性之一是名为 `git svn` 的 Subversion 双向桥接�
 
 # 技术说明
 -->
+
+---
+> [GitHub Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) (PDF)  |  [Visual Git Cheat Sheet](http://ndpsoftware.com/git-cheatsheet.html) (SVG | PNG)   
+> 来源 [git](https://git-scm.com/docs)
 
 ---
 > 参考链接  
