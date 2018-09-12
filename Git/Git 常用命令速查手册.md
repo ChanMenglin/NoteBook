@@ -157,7 +157,7 @@ categories: Git 常用命令 速查手册
 `git blame <file>` 谁在何时更改了文件中的那些内容  
 `git show [commit]` 输出指定提交的元数据和内容更改
 
- 几种不错的提交历史显示格式：
+ **几种不错的提交历史显示格式：**  
 * `git log --pretty=format:"%h - %an, %ar : %s"`
 * `git log --pretty=format:"%h %s" --graph`
 
@@ -171,7 +171,7 @@ categories: Git 常用命令 速查手册
 `git merge <branch></branch>` 将指定分支的历史记录合并到当前分支中  
  
 `git branch -d <branch-name>` 删除一个分支  
-`git push origin --delete <branch>`  删除远程分支  
+`git push origin --delete <branch>` 删除远程分支  
 `git branch -m <old name> <new name>` 在本地重命名分支  
 `git push <remote> :<old name>` 
 `git push <remote> <new name>`
