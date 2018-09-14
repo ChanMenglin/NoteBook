@@ -6,7 +6,9 @@ My NoteBook
 ## 目录
 
 2018-08-29 - [Markdown 语法](https://github.com/ChanMenglin/NoteBook/blob/master/Markdown/Markdown.md)  
-2018-09-01 - [Git](https://github.com/ChanMenglin/NoteBook/blob/master/Git/Git.md)
+2018-09-01 - [Git](https://github.com/ChanMenglin/NoteBook/blob/master/Git/Git.md)  
+2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex)  
+
 
 ---
 
