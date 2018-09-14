@@ -5,10 +5,10 @@ My NoteBook
 
 ## 目录
 
-2018-08-29 - [Markdown 语法](https://github.com/ChanMenglin/NoteBook/blob/master/Markdown/Markdown.md)  
+2018-08-29 - [Markdown 语法](Markdown/Markdown.md)  
 
-2018-09-01 - [Git](https://github.com/ChanMenglin/NoteBook/blob/master/Git/Git.md) | 
-[Git 常用命令速查手册](https://github.com/ChanMenglin/NoteBook/blob/master/Git/Git%20常用命令速查手册.md)  
+2018-09-01 - [Git](Git/Git.md) | 
+[Git 常用命令速查手册](Git/Git%20常用命令速查手册.md)  
 
 2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex) | 
 [中文简体](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | [常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
@@ -19,8 +19,11 @@ My NoteBook
 
 ---
 [常用参考表对照表](http://tools.jb51.net/table)
+命令行：
+[Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
+[Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
-代码编辑器： [VSCode](https://github.com/ChanMenglin/NoteBook/blob/master/VSCode/VSCode插件.md)  
+代码编辑器： [VSCode](VSCode/VSCode插件.md)  
 
 在线工具：
 [脚本之家在线工具](http://tools.jb51.net/) | 
