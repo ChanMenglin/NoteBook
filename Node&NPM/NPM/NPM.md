@@ -2,7 +2,7 @@
 
 官网：
 [NPM 官网](https://www.npmjs.com) | 
-[NPM 中文社区(https://npm.community)  
+[NPM 中文社区](https://npm.community)  
 文档：
 [Documentation](https://docs.npmjs.com) | 
 [中文文档](https://www.npmjs.com.cn)  
