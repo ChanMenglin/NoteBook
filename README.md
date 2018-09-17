@@ -23,12 +23,16 @@ My NoteBook
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
+<<<<<<< HEAD
 代码编辑器： [VSCode](VSCode/VSCode插件.md)  
+=======
+代码编辑器: [VSCode](https://github.com/ChanMenglin/NoteBook/blob/master/VSCode/VSCode插件.md)  
+>>>>>>> ad76c3d183097ca6291a18cb51c727669cfad732
 
 在线工具：
 [脚本之家在线工具](http://tools.jb51.net/) | 
-[在线工具网址导航](http://tool.oschina.net/) | 
-[程默的博客-工具](http://ipblock.chacuo.net) | 
+[在线工具网址导航](http://tool.oschina.net/) | 
+[程默的博客-工具](http://ipblock.chacuo.net) | 
 [在线工具](https://tool.lu) | 
 [开发工具箱](http://www.box3.cn/index.html) | 
 [不白搜工具站](http://www.bubaiso.com) | 
