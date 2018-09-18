@@ -14,7 +14,7 @@ My NoteBook
 [官网](https://www.npmjs.com) | 
 [中文社区](https://npm.community) | 
 [Documentation](https://docs.npmjs.com) | 
-[中文文档](https://www.npmjs.com.cn) |   
+[中文文档](https://www.npmjs.com.cn) | 
 [CNPM](https://npm.taobao.org) | 
 搜索：
 [UNPKG](https://unpkg.com/#/) | 
@@ -31,7 +31,7 @@ My NoteBook
 
 
 ---
-[常用参考表对照表](http://tools.jb51.net/table)
+[常用参考表对照表](http://tools.jb51.net/table)  
 命令行：
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
