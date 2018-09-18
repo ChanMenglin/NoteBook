@@ -1,6 +1,6 @@
 # VSCode
 
-
+[Visual Studio Code 官网](https://code.visualstudio.com)  
 [vscode-tips-and-tricks](https://github.com/Microsoft/vscode-tips-and-tricks)  
 
 ## 快捷键
