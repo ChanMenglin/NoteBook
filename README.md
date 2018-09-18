@@ -36,7 +36,7 @@ My NoteBook
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
-代码编辑器： [VSCode](VSCode/VSCode插件.md)  
+代码编辑器： [VSCode](VSCode/VSCode插件.md) | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)  
 
 在线工具：
 [脚本之家在线工具](http://tools.jb51.net/) | 
