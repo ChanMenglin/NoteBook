@@ -67,8 +67,82 @@ Linux：[nvm for Linux](https://github.com/creationix/nvm/blob/master/README.md#
 
 测试您是否已成功登录：`npm whoami`  
 
-尝试下一个版本：`npm install npm@next -g`  
+
+### 更新
+
+在Linux上更新节点 [NodeSource](https://github.com/nodesource/distributions) 获取最新节点的说明  
+在Windows上更新节点 从 <https://nodejs.org/zh-cn/download> 安装最新的msi  
+在OSX上更新节点 从 <https://nodejs.org/zh-cn/download> 安装最新的软件包  
+或者如果你使用 [homebrew](http://brew.sh/) `brew install node`  
+
+### 一种简单的方法来保持最新  
+
+Node.js有很多版本，它的开发非常活跃。作为管理各种版本的良好实践，我们建议您使用版本管理器来安装Node.js. 有很多很棒的选择，这里有几个：  
+* [NVM](https://github.com/creationix/nvm)
+* [nodist](https://github.com/marcelklehr/nodist)
+* [ñ](https://github.com/tj/n)
+* [nave](https://github.com/isaacs/nave)
+* [nodebrew](https://github.com/hokaccha/nodebrew)
+
+
+尝试下一个版本：  
+Linux/ Mac IS：`npm install npm@next -g` 或 `npm install -g npm@latest`  
+Windows：Microsoft编写了一个小命令行工具来自动执行以下步骤。你可以在[这里](https://github.com/felixrieseberg/npm-windows-upgrade)下载它  
+
+清除 NPM 缓存：`npm cache clean --force`  
+
+### 卸载
+`sudo npm uninstall npm -g` 如果失败，请获取npm源代码，并执行以下操作：`sudo make uninstall`  
+
+### 常见错误
+
+只需运行 `npm cache clean` 并再次尝试即可解决一些奇怪的问题。  
+
+`npm install` 如果遇到问题，使用 `-verbose` 选项查看更多详细信息。  
+
+`npm ERR! Error: ENOSPC, write` 您正在尝试安装在没有空间或没有写入权限的驱动器上。 
+* 释放一些磁盘空间或
+* 将 tmp 文件夹设置在具有更多空间的位置：`npm config set tmp /path/to/big/drive/tmp`
+* 自己构建节点并将其安装在可写空间很大的地方。
+
+```shell
+npm ERR! not found: git
+ENOGIT
+```
+你需要安装git。或者，您可能需要将您的git信息添加到您的npm配置文件中。您可以[从命令行或从网站](https://docs.npmjs.com/getting-started/modifying_your_profile_from_command_line)执行此操作。
+
+[更多常见错误](https://docs.npmjs.com/troubleshooting/common-errors)  
+
+[NPM 配置](https://docs.npmjs.com/misc/config)  
 
 ## 3. CLI命令 [文档](https://docs.npmjs.com/cli/help) 
 
+命令行中的简写
+| 简写                   | 完整命令      |
+| :-------------------- | :----------- |
+| -v                    | --version
+| -h, -?, --help, -H    | --usage
+| -s, --silent          | --loglevel silent
+| -q, --quiet           | --loglevel warn
+| -d                    | --loglevel info
+| -dd, --verbose        | --loglevel verbose
+| -ddd                  | --loglevel silly
+| -g                    | --global
+| -C                    | --prefix
+| -l                    | --long
+| -m                    | --message
+| -p, --porcelain       | --parseable
+| -reg                  | --registry
+| -f                    | --force
+| -desc                 | --description
+| -S                    | --save
+| -P                    | --save-prod
+| -D                    | --save-dev
+| -O                    | --save-optional
+| -B                    | --save-bundle
+| -E                    | --save-exact
+| -y                    | --yes
+| -n                    | --yes false
+ll and la commands: ls --long
 
+获取帮助 `npm help <term> [<terms..>]`  

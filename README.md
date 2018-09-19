@@ -13,15 +13,11 @@ My NoteBook
 2018-9-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
 [中文社区](https://npm.community) | 
-[Documentation](https://docs.npmjs.com) | 
-[中文文档](https://www.npmjs.com.cn) | 
 [CNPM](https://npm.taobao.org) | 
 搜索：
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
 [nodemodules](http://node-modules.com)
-学习：
-[NodeSchool](https://nodeschool.io/zh-cn/)  
 
 2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex) | 
 [中文简体](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | [常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
@@ -31,12 +27,14 @@ My NoteBook
 
 
 ---
-[常用参考表对照表](http://tools.jb51.net/table)  
 命令行：
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
 代码编辑器： [VSCode](VSCode/VSCode插件.md) | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)  
+
+学习：
+[NodeSchool](https://nodeschool.io/zh-cn/)  
 
 在线工具：
 [脚本之家在线工具](http://tools.jb51.net/) | 
