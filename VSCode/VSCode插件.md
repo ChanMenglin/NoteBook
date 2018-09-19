@@ -32,3 +32,7 @@ macOS 快捷键是：command + shift + p
 [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)  
 
 [vscode 插件和配置推荐（前端开发）](https://github.com/varHarrie/varharrie.github.io/issues/10)  
+
+
+## VSCode 主题
+[One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme#review-details)  
