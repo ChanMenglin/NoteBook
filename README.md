@@ -28,13 +28,15 @@ My NoteBook
 
 ---
 命令行：
+[命令行](命令行/命令行.md) | 
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
 代码编辑器： [VSCode](VSCode/VSCode插件.md) | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)  
 
 学习：
-[NodeSchool](https://nodeschool.io/zh-cn/)  
+[NodeSchool](https://nodeschool.io/zh-cn/) | 
+[菜鸟教程](http://www.runoob.com)  
 
 在线工具：
 [脚本之家在线工具](http://tools.jb51.net/) | 
