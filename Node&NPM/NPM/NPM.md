@@ -117,7 +117,8 @@ ENOGIT
 
 ## 3. CLI命令 [文档](https://docs.npmjs.com/cli/help) 
 
-命令行中的简写
+命令行中的简写  
+
 | 简写                   | 完整命令      |
 | :-------------------- | :----------- |
 | -v                    | --version
@@ -143,6 +144,7 @@ ENOGIT
 | -E                    | --save-exact
 | -y                    | --yes
 | -n                    | --yes false
+
 ll and la commands: ls --long
 
 获取帮助 `npm help <term> [<terms..>]`  
