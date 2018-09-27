@@ -47,5 +47,8 @@ My NoteBook
 [不白搜工具站](http://www.bubaiso.com) | 
 [在线开发工具](https://www.bejson.com)
 
+在线文档：
+[在线API文档](http://tool.oschina.net/apidocs)  
+
 ---
 联系方式：<chanmenglin@icloud.com>
