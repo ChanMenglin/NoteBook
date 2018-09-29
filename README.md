@@ -13,18 +13,18 @@ My NoteBook
 2018-9-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
 [中文社区](https://npm.community) | 
-[CNPM](https://npm.taobao.org) | 
 搜索：
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
-[nodemodules](http://node-modules.com)
+[nodemodules](http://node-modules.com)  
 
-2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex) | 
-[中文简体](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | [常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
+2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | 
+[常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
 [语法速查手册](Regex(正则表达式)/正则表达式语法速查手册.md) | 
 [在线练习](https://regex101.com/r/dmRygT/1)  
 
-
+2018-09-29 - [webpack](https://github.com/ChanMenglin/webpack-demo) | 
+[官网](https://www.webpackjs.com)  
 
 ---
 命令行：
@@ -32,7 +32,8 @@ My NoteBook
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
-代码编辑器： [VSCode](VSCode/VSCode插件.md) | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)  
+代码编辑器：
+[VSCode](VSCode/VSCode插件.md) | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)  
 
 学习：
 [NodeSchool](https://nodeschool.io/zh-cn/) | 
