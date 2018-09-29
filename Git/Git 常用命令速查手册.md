@@ -261,6 +261,21 @@ categories: Git 常用命令 速查手册
 `git submodule foreach '<arbitrary-command-to-run>'` 在每个子模块上运行任意命令  
 
 
+# Git 工作流
+
+## 1. 删除远程分支的一次错误提交  
+
+> 删除已经提交的内容的操作较为危险，任何时候都不推荐使用
+
+（1）git reset commitId，(注：不要带--hard)到上个版本  
+（2）git stash，暂存修改  
+（3）git push --force, 强制push,远程的最新的一次commit被删除  
+（4）git stash pop，释放暂存的修改，开始修改代码  
+（5）git add . -> git commit -m "massage" -> git push  
+或（这种操作有同时导致本地修改丢失的风险）  
+（1）git reset --hard HEAD~1  
+（2）git push --force 将本次变更强行推送至服务器。这样在服务器上的最后一次错误提交也彻底消失了。  
+ 
 ---
 > 参考链接  
 >  [GIT CHEAT SHEET](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)  

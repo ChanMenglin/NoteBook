@@ -28,7 +28,7 @@ My NoteBook
 
 ---
 命令行：
-[命令行](命令行/命令行.md) | 
+[命令行](%08命令行/命令行.md) | 
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
@@ -47,6 +47,9 @@ My NoteBook
 [开发工具箱](http://www.box3.cn/index.html) | 
 [不白搜工具站](http://www.bubaiso.com) | 
 [在线开发工具](https://www.bejson.com)
+
+在线文档：
+[在线API文档](http://tool.oschina.net/apidocs)  
 
 ---
 联系方式：<chanmenglin@icloud.com>
