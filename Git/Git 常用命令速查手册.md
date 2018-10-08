@@ -155,7 +155,7 @@ categories: Git 常用命令 速查手册
 
 `git log --grep=<string>` 搜索（grep）提交给定字符串的消息  
 `git blame <file>` 谁在何时更改了文件中的那些内容  
-`git show [commit]` 输出指定提交的元数据和内容更改
+`git show [commit]` 输出指定提交的元数据和内容更改  
 
  **几种不错的提交历史显示格式：**  
 * `git log --pretty=format:"%h - %an, %ar : %s"`
@@ -168,7 +168,8 @@ categories: Git 常用命令 速查手册
 `git checkout <branch-name>` 切换到指定的分支并更新工作目录  
 `git checkout <branch-name>` 切换HEAD分支  
 `git branch --track <new-branch> <remote-branch>` 基于远程分支创建新的跟踪分支  
-`git merge <branch></branch>` 将指定分支的历史记录合并到当前分支中  
+`git merge <branch>` 将指定分支的历史记录合并到当前分支中  
+`git merge --abort` 取消合并  
  
 `git branch -d <branch-name>` 删除一个分支  
 `git push origin --delete <branch>` 删除远程分支  
@@ -185,7 +186,7 @@ categories: Git 常用命令 速查手册
 ## 代码冲突  
 
 `git rebase <branch>` 将当前的HEAD重新定位到分支上  
-`git rebase --abort` 中止一个篮板
+`git rebase --abort` 中止一个篮板  
 `git rebase --continue` 解决冲突后继续改造  
 `git mergetool` 使用配置的合并工具解决冲突  
 `git add <resolved-file>` 
