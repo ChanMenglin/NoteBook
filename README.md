@@ -12,7 +12,7 @@ My NoteBook
 
 2018-9-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
-[中文社区](https://npm.community) | 
+[中文社区](https://npm.community) 
 搜索：
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
