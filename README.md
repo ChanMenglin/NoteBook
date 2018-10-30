@@ -26,6 +26,8 @@ My NoteBook
 2018-09-29 - [webpack](https://github.com/ChanMenglin/webpack-demo) | 
 [官网](https://www.webpackjs.com)  
 
+2018-10-17 - [PandasVersusExcel(Python)](https://github.com/ChanMenglin/PandasVersusExcel)  
+
 ---
 命令行：
 [命令行](%08命令行/命令行.md) | 
