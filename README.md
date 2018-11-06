@@ -50,6 +50,9 @@ My NoteBook
 [不白搜工具站](http://www.bubaiso.com) | 
 [在线开发工具](https://www.bejson.com)
 
+Github Pages
+[部署](https://juejin.im/post/5b14b2f06fb9a01e5e3d3121)
+
 在线文档：
 [在线API文档](http://tool.oschina.net/apidocs)  
 
