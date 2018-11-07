@@ -300,11 +300,12 @@ categories: Git 常用命令 速查手册
 
 ## 2. 添加项目的部分文件(目录)到指定的分支
 
-前提条件：要添加的文件已存在并且不能被 gitignore 屏蔽
+前提条件：要添加的文件已存在并且不能被 gitignore 屏蔽  
+(1) 删除相应远程分支（如果存在）:`git push origin --delete <branch>`  
+(2) 将文件推送到指定的远程分支：`git subtree push --prefix=<file> origin <branch>` 
 
-`git subtree push --prefix=dev origin gh-pages`  
-`dev`:文件名/目录名  
-`gh-pages`:分支名，未建立，会在提交时自动建立
+`<file>`:文件名/目录名  
+`<branch>`:分支名，未建立，会在提交时自动建立,一般为 `gh-pages` (推荐)
 
 # Git 常见错误
 
