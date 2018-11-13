@@ -310,11 +310,11 @@ categories: Git 常用命令 速查手册
 
 ## 3. 提交时提示本地分支晚于远程分支
 
-`git remote add origin <远程仓库地址>`
-`git fetch origin` //获取远程更新 
-`git merge origin/master` //把更新的内容合并到本地分支
+`git remote add origin <远程仓库地址>`  
+`git fetch origin` //获取远程更新   
+`git merge origin/master` //把更新的内容合并到本地分支  
 
-之后就可以正常提交了
+之后就可以正常提交了  
 
 # Git 常见错误
 
