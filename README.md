@@ -28,6 +28,10 @@ My NoteBook
 
 2018-10-17 - [PandasVersusExcel(Python)](https://github.com/ChanMenglin/PandasVersusExcel)  
 
+2018-11-6 - [es6-passport(ES6)](https://github.com/ChanMenglin/es6-passport)
+
+2018-11-20 - [Web-Security(Web 安全)](https://github.com/ChanMenglin/Web-Security)
+
 ---
 命令行：
 [命令行](%08命令行/命令行.md) | 
