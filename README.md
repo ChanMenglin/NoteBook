@@ -26,11 +26,12 @@ My NoteBook
 2018-09-29 - [webpack](https://github.com/ChanMenglin/webpack-demo) | 
 [官网](https://www.webpackjs.com)  
 
-2018-10-17 - [PandasVersusExcel(Python)](https://github.com/ChanMenglin/PandasVersusExcel)  
+2018-10-17 - [PandasVersusExcel(Python)](https://chanmenglin.github.io/PandasVersusExcel/) | 
+[Github](https://github.com/ChanMenglin/PandasVersusExcel)  
 
-2018-11-06 - [es6-passport(ES6)](https://github.com/ChanMenglin/es6-passport)
+2018-11-06 - [es6-passport(ES6)](https://github.com/ChanMenglin/es6-passport)  
 
-2018-11-20 - [Web-Security(Web 安全)](https://github.com/ChanMenglin/Web-Security)
+2018-11-20 - [Web-Security(Web 安全)](https://github.com/ChanMenglin/Web-Security)  
 
 ---
 命令行：
