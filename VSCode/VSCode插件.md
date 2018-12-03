@@ -24,6 +24,21 @@ macOS 快捷键是：command + shift + p
 [VSCode for Windows 快捷键(英文)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)  
 [VSCode for Mac 快捷键(英文)](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
+### 设置选中文字大小写切换
+
+```json
+{
+        "key": "ctrl+shift+u",
+        "command": "editor.action.transformToUppercase",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "editor.action.transformToLowercase",
+        "when": "editorTextFocus"
+    }
+}
+```
 
 ## VSCode 插件
 
