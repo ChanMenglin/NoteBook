@@ -1,7 +1,7 @@
 # NoteBook
 My NoteBook
 
-**本仓库包含本人平时的一些学习笔记及摘抄**
+**本仓库包含本人平时的一些学习笔记及摘抄**  
 
 ## 目录
 
@@ -36,6 +36,15 @@ My NoteBook
 2018-12-03 - [DataScience(基础)](https://chanmenglin.github.io/DataScience/) | [Github](https://github.com/ChanMenglin/DataScience)
 
 ---
+
+## Python  
+
+[python3-tips](https://github.com/ChanMenglin/python3-tips)
+
+---
+
+书籍：[studyFiles](https://github.com/ChanMenglin/studyFiles) | [threerocks/studyFiles](https://github.com/threerocks/studyFiles)  
+
 命令行：
 [命令行](%08命令行/命令行.md) | 
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
@@ -57,7 +66,7 @@ My NoteBook
 [不白搜工具站](http://www.bubaiso.com) | 
 [在线开发工具](https://www.bejson.com)
 
-Github Pages
+Github Pages：
 [部署](https://juejin.im/post/5b14b2f06fb9a01e5e3d3121)
 
 在线文档：
