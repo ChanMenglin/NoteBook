@@ -37,6 +37,7 @@ My NoteBook
 
 2018-12-15 - [WebOptimize(Web 优化)](https://chanmenglin.github.io/WebOptimize/) | [Github](https://github.com/ChanMenglin/WebOptimize)
 
+
 ---
 
 ## Python  
@@ -45,7 +46,9 @@ My NoteBook
 
 ---
 
-书籍：[studyFiles](https://github.com/ChanMenglin/studyFiles) | [threerocks/studyFiles](https://github.com/threerocks/studyFiles)  
+书籍：  
+各类编程书籍：[studyFiles](https://github.com/ChanMenglin/studyFiles) | [threerocks/studyFiles](https://github.com/threerocks/studyFiles)  
+数据科学相关速查表：[FavioVazquez/ds-cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)  
 
 命令行：
 [命令行](%08命令行/命令行.md) | 
