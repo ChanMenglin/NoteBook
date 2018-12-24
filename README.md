@@ -48,7 +48,8 @@ My NoteBook
 
 书籍：  
 各类编程书籍：[studyFiles](https://github.com/ChanMenglin/studyFiles) | [threerocks/studyFiles](https://github.com/threerocks/studyFiles)  
-数据科学相关速查表：[FavioVazquez/ds-cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)  
+数据科学相关速查表：[ds-cheatsheets](https://github.com/ChanMenglin/ds-cheatsheets) | 
+[FavioVazquez/ds-cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)  
 
 命令行：
 [命令行](%08命令行/命令行.md) | 
