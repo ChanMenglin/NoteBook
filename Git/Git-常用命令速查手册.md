@@ -20,6 +20,7 @@ categories: Git 常用命令 速查手册
     * [远端仓库](#远端仓库)
     * [撤销](#撤销)
     * [子模块](#子模块)
+    * [Git 底层](#git-底层)
 * [Git 工作流](#Git-工作流)
     * [1. 删除远程分支的一次错误提交](#1-删除远程分支的一次错误提交)
     * [2. 添加项目的部分文件（目录）到指定的分支](#2-添加项目的部分文件目录到指定的分支)
@@ -94,7 +95,7 @@ categories: Git 常用命令 速查手册
 `git config --global user.email "<email address>"` 设置要附加到提交事务的电子邮件  
 `git config --global color.ui auto` 启用命令行输出的有用颜色  
 
- ## 创建仓库
+## 创建仓库
 
 `git init` 创建新本地仓库  
 `git init <project-name>` 创建具有指定名称的新本地仓库  
@@ -104,29 +105,33 @@ categories: Git 常用命令 速查手册
 ## 本地文件操作
 
 `git status` 列出要提交的所有新文件或已修改文件  
-`git diff` 显示尚未暂存的文件差异  
+`git diff` 显示工作区和暂存区的文件差异  
 `git diff [first-branch]...[second-branch]` 显示两个分支之间的内容差异  
+`git diff —staged` / `git diff —cached` 比较 HEAD 和暂存区之间的文件差异  
 `git add <file>` 将文件中的所有当前更改添加到下一个提交  
 `git add .` 将所有当前更改添加到下一个提交  
+`git add -u` 将所有当前更改且已被 git 管理的文件添加到下一个提交  
 `git add -p <file>` 以交互方式将更改添加到下一个提交  
 `git mv <file> <new file name>` 重命名文件并将其添加到下一个提交  
-`git rm <file>` 删除文件并将其添加到下一个提交   
-`git rm --cached <file>` 从版本控制中删除该文件，但在本地保留该文件   
+`git rm <file>` 删除文件并将其添加到下一个提交  
+`git rm --cached <file>` 从版本控制中删除该文件，但在本地保留该文件  
 `git ls-files --other --ignored --exclude-standard` 列出此项目中所有被忽略的文件  
- 
 
 ## 提交更改
 
 `git commit -m "<descriptive message>"` 在版本历史记录中永久记录文件快照  
 `git commit -a` 提交跟踪文件中的所有本地更改,相当于运行 git add 把所有当前目录下的文件加入暂存区域再运行。git commit  
 `git commit --amend` 修改最近一次提交  
+`git rebase -i <commit hash>` 变基操作（不要修改已提交到公共仓库的提交，可能会导致仓库版本历史混乱）
 
 ## 提交历史
 
-`git log` 显示所有提交历史  
+`gitk` 图形化界面展示版本信息  
+`git log` 显示当前分支所有提交历史  
 `git log -p <file>` 显示特定文件随时间的变化  
 `git log --author=<committer name>` 显示特定提交者随时间的变化  
 `git log --pretty` 指定使用完全不同于默认格式的方式展示提交历史  
+
 * `oneline` 将每个提交放在一行显示
 * `format` 可以定制要显示的记录格式  
 
@@ -181,6 +186,12 @@ categories: Git 常用命令 速查手册
 `git show [commit]` 输出指定提交的元数据和内容更改  
 
  **几种不错的提交历史显示格式：**  
+* `git log --all` 查看所有分支的历史
+* `git log --all --graph` 查看图形化的 log 地址
+* `git log --oneline` 查看单行的简洁历史。
+* `git log --oneline -n4` 查看最近的四条简洁历史。
+* `git log --oneline --all -n4 --graph` 查看所有分支最近 4 条单行的图形化历史。
+* `git help --web log` 跳转到git log 的帮助文档网页
 * `git log --pretty=format:"%h - %an, %ar : %s"`
 * `git log --pretty=format:"%h %s" --graph`
 
@@ -200,8 +211,9 @@ categories: Git 常用命令 速查手册
 `git push <remote> :<old name>` 
 `git push <remote> <new name>`
 重命名远程分支  
+`git push -f` 强制提交（绝对不要使用，危害极大）
 
-## 标签   
+## 标签
 
 `git tag <tag-name>` 标记当前提交  
 `git push --tags` 发布标签  
@@ -209,8 +221,8 @@ categories: Git 常用命令 速查手册
 ## 代码冲突  
 
 `git rebase <branch>` 将当前的HEAD重新定位到分支上  
-`git rebase --abort` 中止一个篮板  
-`git rebase --continue` 解决冲突后继续改造  
+`git rebase --abort` 中止一个变基  
+`git rebase --continue` 继续变基  
 `git mergetool` 使用配置的合并工具解决冲突  
 `git add <resolved-file>` 
 `git rm <resolved-file>`
@@ -219,6 +231,7 @@ categories: Git 常用命令 速查手册
 ## 暂存  
 
 `git stash` 隐藏存储更改  
+`git stash apply` 应用隐藏的更改  
 `git stash pop` 删除并应用隐藏的更改  
 `git stash list` 列出所有隐藏的变更集  
 `git stash drop` 丢弃最近隐藏的变更集  
@@ -237,15 +250,20 @@ categories: Git 常用命令 速查手册
   
 ## 撤销  
 
-`git reset --hard HEAD` 放弃工作目录中的所有本地更改  
+`git reset HEAD` 暂存区恢复成 HEAD
+`git reset --hard` / `git reset --hard HEAD` 放弃工作目录中的所有本地更改  
 `git reset [commit]` 在[commit]之后撤消所有提交，在本地保留更改  
 `git reset --hard [commit]` 丢弃所有历史记录并更改回指定的提交  
+`git checkout <file>` 放弃特定文件的工作区更改并恢复暂存区文件到工作区  
 `git checkout HEAD <file>` 放弃特定文件中的本地更改  
-`git revert <commit>` 通过提供具有相反更改的新提交来还原提交
 `git checkout <commit> <file>` 从先前的提交中还原特定文件  
+`git revert <commit>` 通过提供具有相反更改的新提交来还原提交  
+
+> `git checkout` 用于对工作区的修改  
+> `git reset` 用于对暂存区的修改
 
 将HEAD指针重置为先前的提交
-* `git reset --hard <commit>` 放弃本地更改  
+* `git reset --hard <commit>` 恢复到指定的 commit（会丢弃 指定commit 之后的所有修改） 
 * `git reset <commit>` 将所有更改保留为未分级更改  
 * `git reset --keep <commit>` 保留未提交的本地更改  
 
@@ -284,6 +302,19 @@ categories: Git 常用命令 速查手册
 `git push --recurse-submodules=on-demand` 将更改推送到子模块，然后推送上层项目更改  
 `git submodule foreach '<arbitrary-command-to-run>'` 在每个子模块上运行任意命令  
 
+## Git 底层
+
+`git cat-file` 显示版本库对象的内容、类型及大小信息(blob, tree, commit, tag)  
+`git cat-file -t <hash>` 显示版本库对象的类型  
+`git cat-file -s <hash>` 显示版本库对象的大小  
+`git cat-file -p <hash>` 显示版本库对象的内容
+
+**Git 仓库的 `.git` 目录**
+* `HEAD`：指向当前的工作路径
+* `config`：存放本地仓库（local）相关的配置信息。
+* `refs/heads`: 存放分支
+* `refs/tags`: 存放tag，又叫里程牌 （当这次commit是具有里程碑意义的 比如项目1.0的时候 就可以打tag）
+* `objects`：存放对象 .git/objects/ 文件夹中的子文件夹都是以哈希值的前两位字符命名 每个object由40位字符组成，前两位字符用来当文件夹，后38位做文件。
 
 # Git 工作流
 
@@ -312,12 +343,13 @@ categories: Git 常用命令 速查手册
 ## 3. 提交时提示本地分支晚于远程分支
 
 `git remote add origin <远程仓库地址>`  
-`git fetch origin` //获取远程更新   
-`git merge origin/master` //把更新的内容合并到本地分支  
+`git fetch origin` 获取远程更新  
+`git merge origin/master` 把更新的内容合并到本地分支  
 
 之后就可以正常提交了
 
 ## 4. 删除错误提交到远端仓库的文件
+
 ```shell
 git rm --cached <file-name> 
 git commit -m "delete file"  
@@ -334,7 +366,9 @@ git push
 >  [GIT CHEAT SHEET](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)  
 > [图解 Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html#diff)  
 > [Git](https://kapeli.com/cheat_sheets/Git.docset/Contents/Resources/Documents/index)
-
-
-
-
+> [Git 官方中文文档](https://git-scm.com/book/zh/v2)  
+> 延伸：  
+> [GotGit 《Git权威指南》](http://www.worldhello.net/gotgit/#) | [Github](https://github.com/gotgit/gotgit)  
+> [Repo](https://blog.csdn.net/nwpushuai/article/details/78778602) | [英文资料](https://gerrit.googlesource.com/git-repo/)  
+> [版本控制的前世和今生](https://github.com/gotgit/gotgit/blob/master/01-meet-git/010-scm-history.rst)  
+> [.gitignore](https://github.com/github/gitignore)
