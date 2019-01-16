@@ -16,7 +16,8 @@ My NoteBook
 搜索：
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
-[nodemodules](http://node-modules.com)  
+[nodemodules](http://node-modules.com) | 
+[npmsearch](https://npmsearch.com)  
 
 2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | 
 [常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
