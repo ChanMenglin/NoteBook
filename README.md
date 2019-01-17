@@ -9,6 +9,7 @@ My NoteBook
 
 2018-09-01 - [Git](Git/Git.md) | 
 [.gitignore](https://github.com/github/gitignore) | 
+[Pro Git](http://iissnan.com/progit/) | 
 [Git 常用命令速查手册](Git/Git-常用命令速查手册.md) 
 
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
@@ -51,6 +52,7 @@ My NoteBook
 
 书籍：  
 各类编程书籍：[studyFiles](https://github.com/ChanMenglin/studyFiles) | [threerocks/studyFiles](https://github.com/threerocks/studyFiles)  
+免费编程书籍：[free-programming-books](https://github.com/stormzhang/free-programming-books)  
 数据科学相关速查表：[ds-cheatsheets](https://github.com/ChanMenglin/ds-cheatsheets) | 
 [FavioVazquez/ds-cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)  
 
