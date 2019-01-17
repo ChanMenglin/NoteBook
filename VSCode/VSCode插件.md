@@ -170,7 +170,6 @@ macOS 快捷键是：command + shift + p
 | --- | :--- | :-: |
 | [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) | C# 开发基础，提供智能提示等 | [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft) |
 | [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) | 提供 Debug 功能 | [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft) |
-| [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) | 调试工具 | [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft) |
 | [C# XML Documentation Comments](https://marketplace.visualstudio.com/items?itemName=k--kato.docomment) | 实现和vs一样的xml注释。比如按三下///自动补全 | [Keisuke Kato](https://marketplace.visualstudio.com/items?itemName=k--kato.docomment) |
 | [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager) | 搜索Nuget包并自动向project.json添加 | [jmrog](https://marketplace.visualstudio.com/publishers/jmrog) |
 
