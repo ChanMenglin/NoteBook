@@ -35,6 +35,32 @@ macOS 快捷键是：command + shift + p
 
 ### 快捷键（基于 MacOS）
 
+常用快捷键
+
+| 键    | 命令   |
+| :---: | :---: |
+| ⌘+    | 放大 |
+| ⌘-    | 缩小 |
+| ^⇧⌘←  | 缩小选择范围 |
+| ^⇧⌘→  | 增加选择范围 |
+|⇧⌘K    | 删除行 |
+| ⇧⌥F   | 格式文档 |
+| ⌘K⌘F  | 格式选中文本 |
+| ⌥⌘↓   | 在下面插入光标 |
+| ⌥⌘↑   | 在上方插入光标 |
+| ⌘K⌘C  | 添加行注释 |
+| ⌘K⌘U  | 删除行注释 |
+| ⌘F    | 查找 |
+| ⌥⌘F   | 更换 |
+| ⌥⌘C   | 切换查找区分大小写 |
+| ⌥↑    | 向上移动行 |
+| ⌥↓    | 向下移动行 |
+| ⇧⌥↑   | 向上复制行 |
+| ⇧⌥↓   | 向下复制行 |
+| ⇧⌥↓   | 向下复制行 |
+| ⇧⌥推动鼠标 | 左对齐选择 |
+| ⇧⌥⌘↑/↓/←/→| 左对齐选择 |
+
 基本编辑
 
 | 键    | 命令  | 命令ID
@@ -78,7 +104,7 @@ macOS 快捷键是：command + shift + p
 | ⌘K⌘U | 删除行注释 | editor.action.removeCommentLine
 | ⌘/ | 切换线评论 | editor.action.commentLine
 | ⇧⌥A | 切换块注释 | editor.action.blockComment
-| ⌘F | 找 | actions.find
+| ⌘F | 查找 | actions.find
 | ⌥⌘F | 更换 | editor.action.startFindReplaceAction
 | ⌘G | 找下一个 | editor.action.nextMatchFindAction
 | ⇧⌘G | 找到上一个 | editor.action.previousMatchFindAction
