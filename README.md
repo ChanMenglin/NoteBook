@@ -21,6 +21,7 @@ My NoteBook
 [npmsearch](https://npmsearch.com)  
 
 2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | 
+[learn regex](https://github.com/ziishaned/learn-regex) | 
 [常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
 [语法速查手册](Regex(正则表达式)/正则表达式语法速查手册.md) | 
 [在线练习](https://regex101.com/r/dmRygT/1)  
