@@ -10,7 +10,7 @@ My NoteBook
 2018-09-01 - [Git](Git/Git.md) | 
 [.gitignore](https://github.com/github/gitignore) | 
 [Pro Git](http://iissnan.com/progit/) | 
-[Git 常用命令速查手册](Git/Git-常用命令速查手册.md) 
+[Git 常用命令速查手册](Git/Git-常用命令速查手册.md) | [Git CheatSheet](https://github.com/Mist-Of-Doomsday-Magic-Cabal/git-cheatsheet)  
 
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
@@ -41,6 +41,7 @@ My NoteBook
 
 2018-12-15 - [WebOptimize(Web 优化)](https://chanmenglin.github.io/WebOptimize/) | [Github](https://github.com/ChanMenglin/WebOptimize)
 
+2019-1-10 [Database](Database/README.md)  
 
 ---
 
