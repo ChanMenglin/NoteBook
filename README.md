@@ -41,7 +41,7 @@ My NoteBook
 
 2018-12-15 - [WebOptimize(Web 优化)](https://chanmenglin.github.io/WebOptimize/) | [Github](https://github.com/ChanMenglin/WebOptimize)
 
-2019-1-10 [Database](Database/README.md)  
+2019-1-10 - [Database](Database/README.md)  
 
 ---
 
