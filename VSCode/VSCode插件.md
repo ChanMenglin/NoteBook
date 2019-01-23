@@ -159,6 +159,7 @@ macOS 快捷键是：command + shift + p
 [插件搜索](https://marketplace.visualstudio.com/vscode)  
 
 [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)  
+[EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 
 ### VSCode 插件（前端）
 

@@ -17,6 +17,8 @@ My NoteBook
 [Github](https://github.com/gitattributes/gitattributes.io) | 
 [.gitattributes](https://github.com/alexkaratarakis/gitattributes) | 
 [.gitattributes templates](https://github.com/alexkaratarakis/gitattributes)  
+**.editorconfig** - [HomePage](https://editorconfig.org) | 
+[@editconfig](https://github.com/editorconfig)
 
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
