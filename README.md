@@ -17,12 +17,13 @@ My NoteBook
 [Github](https://github.com/gitattributes/gitattributes.io) | 
 [.gitattributes](https://github.com/alexkaratarakis/gitattributes) | 
 [.gitattributes templates](https://github.com/alexkaratarakis/gitattributes)  
-**.editorconfig** - [HomePage](https://editorconfig.org) | 
-[@editconfig](https://github.com/editorconfig)
+**.editorconfig** - [Page](https://editorconfig.org) | 
+[@editconfig](https://github.com/editorconfig) | 
+[EditorConfig](https://github.com/RehanSaeed/EditorConfig)  一个非常通用的.editorconfig文件  
 
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
-[中文社区](https://npm.community) 
+[中文社区](https://npm.community)  
 搜索：
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
