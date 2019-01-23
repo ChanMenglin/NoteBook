@@ -8,9 +8,15 @@ My NoteBook
 2018-08-29 - [Markdown 语法](Markdown/Markdown.md)  
 
 2018-09-01 - [Git](Git/Git.md) | 
-[.gitignore](https://github.com/github/gitignore) | 
 [Pro Git](http://iissnan.com/progit/) | 
 [Git 常用命令速查手册](Git/Git-常用命令速查手册.md) | [Git CheatSheet](https://github.com/Mist-Of-Doomsday-Magic-Cabal/git-cheatsheet)  
+**.gitignore** - [Page](https://www.gitignore.io) | 
+[Github](https://github.com/joeblau/gitignore.io) | 
+[.gitignore](https://github.com/github/gitignore) | [.gitignore templates](https://github.com/dvcs/gitignore)  
+**.gitattributes** - [Page](https://gitattributes.io) | 
+[Github](https://github.com/gitattributes/gitattributes.io) | 
+[.gitattributes](https://github.com/alexkaratarakis/gitattributes) | 
+[.gitattributes templates](https://github.com/alexkaratarakis/gitattributes)  
 
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
@@ -19,7 +25,7 @@ My NoteBook
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
 [nodemodules](http://node-modules.com) | 
-[npmsearch](https://npmsearch.com)  
+[npmsearch](https://npmsearch.com) | [精选npm包](https://segmentfault.com/a/1190000017461602)  
 
 2018-09-14 - [正则表达式](https://github.com/ChanMenglin/learn-regex/blob/master/README-cn.md) | 
 [learn regex](https://github.com/ziishaned/learn-regex) | 
@@ -41,7 +47,7 @@ My NoteBook
 
 2018-12-15 - [WebOptimize(Web 优化)](https://chanmenglin.github.io/WebOptimize/) | [Github](https://github.com/ChanMenglin/WebOptimize)
 
-2019-1-10 - [Database](Database/README.md)  
+2019-01-10 - [Database](Database/README.md)  
 
 ---
 

@@ -164,7 +164,9 @@ macOS 快捷键是：command + shift + p
 
 [vscode 插件和配置推荐（前端开发）](https://github.com/varHarrie/varharrie.github.io/issues/10)  
 
-### VSCode 插件（C#）
+### VSCode for C#
+
+[VSCode use C＃](https://code.visualstudio.com/docs/languages/csharp)
 
 | 插件 | 作用 | 作者 |
 | --- | :--- | :-: |
@@ -172,6 +174,7 @@ macOS 快捷键是：command + shift + p
 | [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) | 提供 Debug 功能 | [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft) |
 | [C# XML Documentation Comments](https://marketplace.visualstudio.com/items?itemName=k--kato.docomment) | 实现和vs一样的xml注释。比如按三下///自动补全 | [Keisuke Kato](https://marketplace.visualstudio.com/items?itemName=k--kato.docomment) |
 | [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager) | 搜索Nuget包并自动向project.json添加 | [jmrog](https://marketplace.visualstudio.com/publishers/jmrog) |
+| [C# Extensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) | VSCode C# IDE 扩展 | [jchannon](https://marketplace.visualstudio.com/publishers/jchannon) |
 
 
 
