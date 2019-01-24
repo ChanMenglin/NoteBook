@@ -177,8 +177,11 @@ macOS 快捷键是：command + shift + p
 | [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager) | 搜索Nuget包并自动向project.json添加 | [jmrog](https://marketplace.visualstudio.com/publishers/jmrog) |
 | [C# Extensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) | VSCode C# IDE 扩展 | [jchannon](https://marketplace.visualstudio.com/publishers/jchannon) |
 
-
-
 ## VSCode 主题
 
 [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme#review-details)  
+
+## VSCode Debug
+
+VSCode Debug Specs - [Page](https://74th.github.io/vscode-debug-specs/) | [Github](https://github.com/74th/vscode-debug-specs) Visual Studio Code Debug 规范的集合以及各种语言和平台的操作方法
+
