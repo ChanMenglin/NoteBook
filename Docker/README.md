@@ -93,14 +93,11 @@ Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方�
 **服务**  
 
 * `docker swarm init` 需要先运行以下命令，然后才能使用 `docker stack deploy` 命令
-* 
-
-
-docker stack ls              # 列出此 Docker 主机上所有正在运行的应用
-docker stack deploy -c <composefile> <appname>  # 运行指定的 Compose 文件
-docker stack services <appname>       # 列出与应用关联的服务
-docker stack ps <appname>   # 列出与应用关联的正在运行的容器
-docker stack rm <appname>                             # 清除应用
+* `docker stack ls` 列出此 Docker 主机上所有正在运行的应用
+* `docker stack deploy -c <composefile> <appname>` 运行指定的 Compose 文件
+* `docker stack services <appname>` 列出与应用关联的服务
+* `docker stack ps <appname>` 列出与应用关联的正在运行的容器
+* `docker stack rm <appname>` 清除应用
 
 ## Dockerfile 命令
 
