@@ -23,32 +23,38 @@
 [Page](https://labs.play-with-docker.com/) | 
 [Github](https://github.com/play-with-docker/play-with-docker) 
 体验到在云中拥有免费的Alpine Linux虚拟机，您可以在其中构建和运行Docker容器，甚至可以使用Swarm模式等Docker功能创建集群。  
+
 **awesome-docker** - 
 [Page](https://awesome-docker.netlify.com) | 
 [Github](https://github.com/veggiemonk/awesome-docker) 
 Docker资源和项目的精选列表  
+
 **Moby** - 
 [Page](https://mobyproject.org/) | 
 [Github](https://github.com/moby/moby) 
 Docker创建的一个开源项目，用于启用和加速软件容器化。
 它提供了工具包组件的“乐高集”，用于将它们组装到基于容器的自定义系统中的框架，以及所有容器爱好者和专业人员实验和交换想法的地方。组件包括容器构建工具，容器注册表，编排工具，运行时等，这些可以与其他工具和项目一起用作构建块。  
+
 **Docker Official Images** - 
 [Page](https://hub.docker.com/search/?q=&type=image) | 
 [示例](https://docs.docker-cn.com/samples/) | 
 [Github](https://github.com/docker-library/official-images) | 
 [@Docker-Library](https://github.com/docker-library) 
 Docker 官方 Images  
+
 **oracle/docker-images** - 
 [Page](https://developer.oracle.com/containers) | 
 [Github](https://github.com/oracle/docker-images) 
 Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方来源  
+
 **jupyter/docker-stacks** - 
 [Page](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html) | 
 [Github](https://github.com/jupyter/docker-stacks) 
 包含Jupyter应用程序的可立即运行的Docker镜像  
+
 **NVIDIA/nvidia-docker** - 
 [Github](https://github.com/NVIDIA/nvidia-docker) 
-利用NVIDIA GPU构建和运行Docker容器   
+利用NVIDIA GPU构建和运行Docker容器  
 
 ---
 **Docker image**  
