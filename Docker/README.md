@@ -111,7 +111,7 @@ Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方�
 | FROME | base image |
 | RUN   | 执行命令    |
 | ADD   | 添加文件    |
-| COPY  | 拷贝文件    |
+| COPY  | 拷贝文件    |
 | CMD   | 执行命令    |
 | EXPOSE| 暴露来端口  |
 | WORKDIR | 指定路径  |
