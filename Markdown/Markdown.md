@@ -164,13 +164,13 @@ Markdown 没有原生下划线标记，我们可以使用 **行内HTML**（下�
 | :---------------- | :------------------------- | :------------------- |
 | AppleScript       |	applescript              |    	
 | ActionScript 3.0  |	actionscript3 , as3      |
-| Shell             |	bash , shell             |
 | ColdFusion	    |   coldfusion , cf	         |	
 | C	                |   cpp , c                  |
 | C#	            |   c# , c-sharp , csharp    |
 | CSS	            |   css	                     |
 | Delphi            |	delphi , pascal , pas    |
 | diff&patch        |	diff patch	             | 用代码版本库时,遇到代码冲突,其语法就是这个
+| Dockerfile        | Dockerfile                 | Docker 容器
 | Erlang            |	erl , erlang	         |
 | Groovy            |	groovy	                 |
 | Java              |	java	                 |
@@ -181,6 +181,7 @@ Markdown 没有原生下划线标记，我们可以使用 **行内HTML**（下�
 | text	            |   text , plain	         | 就是普通文本
 | Python	        |   py , python	             |
 | Ruby	            |   ruby , rails , ror , rb  |
+| Shell             |	bash , shell             |
 | SASS&SCSS	        |   sass , scss	             |
 | Scala	            |   scala	                 |
 | SQL	            |   sql	                     |
