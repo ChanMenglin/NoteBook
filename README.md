@@ -21,6 +21,15 @@ My NoteBook
 [@editconfig](https://github.com/editorconfig) | 
 [EditorConfig](https://github.com/RehanSaeed/EditorConfig)  一个非常通用的.editorconfig文件  
 
+```editorconfig
+indent_style = space
+indent_size = 2
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+max_line_length = 100
+```
+
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
 [中文社区](https://npm.community)  

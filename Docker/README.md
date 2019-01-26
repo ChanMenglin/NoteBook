@@ -113,7 +113,7 @@ Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方�
 各种 Dockerfiles 
 
 | 命令  | 用途  |
-| :--: | :--: |
+| ---- | ---- |
 | FROME | base image |
 | RUN   | 执行命令    |
 | ADD   | 添加文件    |
