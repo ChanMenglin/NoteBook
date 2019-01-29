@@ -69,6 +69,18 @@ Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方�
 * `docker -v`/`docker --version` 查看当前安装的 Docker 版本
 * `docker run hello-world` 对环境进行快速的测试运行
 
+**镜像**  
+
+* `docker search` 从网络搜索 Docker 镜像
+* `docker images -a` 显示此机器上的所有镜像
+* `docker images`/`docker image ls` 查看已构建的镜像
+* `docker build -t <name>` 使用此目录的 Dockerfile 创建镜像
+* `docker run -p 4000:80 <name>` 运行端口 4000 到 90 的“友好名称”映射
+* `docker run -d -p 4000:80 <name>` 分离模式下运行
+* `docker run <username>/<repository>:<tag>` 运行镜像库中的镜像
+* `docker rmi <imagename>` 从此机器中删除指定的镜像
+* `docker rmi $(docker images -q)` 从此机器中删除所有镜像
+
 **容器**  
 
 * `docker container ls`/`docker ps` 查看所有正在运行的容器的列表
@@ -76,19 +88,8 @@ Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方�
 * `docker inspect <hash>` 查看容器所有的相关信息
 * `docker rm <hash>` 从此机器中删除指定的容器
 * `docker rm $(docker ps -a -q)` 从此机器中删除所有容器
-
-**镜像**  
-
-* `docker images -a` 显示此机器上的所有镜像
-* `docker images`/`docker image ls` 查看已构建的镜像
-* `docker build -t <name>` 使用此目录的 Dockerfile 创建镜像
-* `docker run -p 4000:80 <name>` 运行端口 4000 到 90 的“友好名称”映射
-* `docker run -d -p 4000:80 <name>` 分离模式下运行
-* `docker run <username>/<repository>:<tag>` 运行镜像库中的镜像
 * `docker stop <hash>` 平稳地停止指定的容器
 * `docker kill <hash>` 强制关闭指定的容器
-* `docker rmi <imagename>` 从此机器中删除指定的镜像
-* `docker rmi $(docker images -q)` 从此机器中删除所有镜像
 
 **账户 Hub**  
 
@@ -98,12 +99,16 @@ Docker配置，图像以及Dockerfiles for Oracle产品和项目示例的官方�
 
 **服务**  
 
-* `docker swarm init` 需要先运行以下命令，然后才能使用 `docker stack deploy` 命令
+* `docker swarm init` 需要先运行此命令，然后才能使用 `docker stack deploy` 命令
 * `docker stack ls` 列出此 Docker 主机上所有正在运行的应用
-* `docker stack deploy -c <composefile> <appname>` 运行指定的 Compose 文件
+* `docker stack deploy -c <composefile> <appname>` 运行指定的 Compose.yml 文件
 * `docker stack services <appname>` 列出与应用关联的服务
 * `docker stack ps <appname>` 列出与应用关联的正在运行的容器
 * `docker stack rm <appname>` 清除应用
+
+**swarm 集群**  
+
+
 
 ## Dockerfile 命令
 
@@ -150,4 +155,36 @@ ENV NAME World
 
 # 在容器启动时运行 app.py
 CMD ["python", "app.py"]
+```
+
+## docker-compose.yml 命令
+
+[Compose file versions and upgrading](https://docs.docker.com/compose/compose-file/compose-versioning/) | 
+[docker-compose.yml 语法说明](https://blog.csdn.net/u014242496/article/details/73835541)
+
+```yml
+version:"3" # 此版本具有较好的兼容性
+services:
+  # 将该镜像的实例作为服务 `web` 运行(`web` 为服务的名称，可自定义)
+  web:
+    # 将 username/repo:tag 替换为您的名称和镜像详细信息
+    image: username/repository:tag # 从镜像库中拉取镜像
+    deploy:
+      replicas:5 # 为该镜像创建五个实例
+      resources:
+      # 每个实例限制最多使用的 cpus 和 memory
+        limits:
+          cpus:"0.1"
+          memory:50M
+      # 如果某个容器发生故障，立即重启容器
+      restart_policy:
+        condition: on-failure
+    # 将主机上的端口 80 映射到 `web` 的端口 80
+    ports:
+      - "80:80"
+    # 指示 `web` 容器通过负载均衡的网络 `webnet` 共享端口 80。（在内部，容器自身将在临时端口发布到 `web` 的端口 80。）
+    networks:
+      - webnet
+networks:
+  webnet:
 ```
