@@ -78,7 +78,7 @@ max_line_length = 100
 [FavioVazquez/ds-cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)  
 
 命令行：
-[命令行](%08命令行/命令行.md) | 
+[命令行](命令行/命令行.md) | 
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
 [Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
 
