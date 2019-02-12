@@ -73,6 +73,12 @@ max_line_length = 100
 
 [python3-tips](https://github.com/ChanMenglin/python3-tips)
 
+
+## Web
+
+**WebBase** - [Page](https://chanmenglin.github.io/WebBase/) | 
+[Github](https://github.com/ChanMenglin/WebBase)
+
 ---
 
 书籍：  
