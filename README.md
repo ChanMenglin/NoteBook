@@ -30,6 +30,9 @@ insert_final_newline = true
 max_line_length = 100
 ```
 
+**.browserslistrc** - [Github](https://github.com/browserslist/browserslist) | 
+[Twitter](https://twitter.com/browserslist) (web 开发)浏览器兼容性设置
+
 2018-09-17 - [NPM](Node&NPM/NPM/NPM.md) | 
 [官网](https://www.npmjs.com) | 
 [中文社区](https://npm.community)  
