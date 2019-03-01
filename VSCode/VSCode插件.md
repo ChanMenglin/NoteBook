@@ -177,6 +177,12 @@ macOS 快捷键是：command + shift + p
 | [NuGet Package Manager](https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager) | 搜索Nuget包并自动向project.json添加 | [jmrog](https://marketplace.visualstudio.com/publishers/jmrog) |
 | [C# Extensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) | VSCode C# IDE 扩展 | [jchannon](https://marketplace.visualstudio.com/publishers/jchannon) |
 
+### VSCode for LeetCode
+
+[LeetCode](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-leetcode) | 
+[Github](https://github.com/jdneo/vscode-leetcode) | 
+[zh-CN](https://github.com/jdneo/vscode-leetcode/blob/master/docs/README_zh-CN.md)
+
 ## VSCode 主题
 
 [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme#review-details)  

@@ -87,6 +87,11 @@ max_line_length = 100
 免费编程书籍：[free-programming-books](https://github.com/stormzhang/free-programming-books)  
 数据科学相关速查表：[ds-cheatsheets](https://github.com/ChanMenglin/ds-cheatsheets) | 
 [FavioVazquez/ds-cheatsheets](https://github.com/FavioVazquez/ds-cheatsheets)  
+中国科学技术大学计算机学院课程资源：[USTC-CS-Courses-Resource](https://github.com/mbinary/USTC-CS-Courses-Resource) | 
+[Page1](https://mbinary.xyz/ustc-cs/) | 
+[Page2](https://mbinary.xyz/ustc-cs/)  
+渗透攻击(Micro8)：[Micro8](https://github.com/Micropoor/Micro8) | 
+[wiki](https://github.com/Micropoor/Micro8/wiki)  
 
 命令行：
 [命令行](命令行/命令行.md) | 
