@@ -45,7 +45,7 @@ macOS 快捷键是：command + shift + p
 | ^⇧⌘→  | 增加选择范围 |
 |⇧⌘K    | 删除行 |
 | ⇧⌥F   | 格式文档 |
-| ⌘K⌘F  | 格式选中文本 |
+| ⌘K⌘F  | 格式选中文本 |
 | ⌥⌘↓   | 在下面插入光标 |
 | ⌥⌘↑   | 在上方插入光标 |
 | ⌘K⌘C  | 添加行注释 |
@@ -161,15 +161,15 @@ macOS 快捷键是：command + shift + p
 [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)  
 [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 
-### VSCode 插件（前端）
+### VSCode 插件（前端）
 
 [vscode 插件和配置推荐（前端开发）](https://github.com/varHarrie/varharrie.github.io/issues/10)  
 
-### VSCode for C#
+### VSCode for C#
 
-[VSCode use C＃](https://code.visualstudio.com/docs/languages/csharp)
+[VSCode use C＃(https://code.visualstudio.com/docs/languages/csharp)
 
-| 插件 | 作用 | 作者 |
+| 插件 | 作用 | 作者 |
 | --- | :--- | :-: |
 | [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) | C# 开发基础，提供智能提示等 | [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft) |
 | [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) | 提供 Debug 功能 | [Microsoft](https://marketplace.visualstudio.com/publishers/Microsoft) |
