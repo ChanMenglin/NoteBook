@@ -57,7 +57,7 @@ max_line_length = 100
 
 2018-11-06 - [es6-passport(ES6)](https://github.com/ChanMenglin/es6-passport)  
 
-2018-11-20 - [Web-Security(Web 安全)](https://github.com/ChanMenglin/WebSecurity) 
+2018-11-20 - [Web-Security(Web 安全)](https://github.com/ChanMenglin/WebSecurity)  
 
 2018-12-03 - [DataScience(基础)](https://chanmenglin.github.io/DataScience/) | [Github](https://github.com/ChanMenglin/DataScience)  
 
