@@ -42,12 +42,15 @@ max_line_length = 100
 [UNPKG](https://unpkg.com/#/) | 
 [npms](https://npms.io) | 
 [nodemodules](http://node-modules.com) | 
-[npmsearch](https://npmsearch.com) | [精选npm包](https://segmentfault.com/a/1190000017461602)  
+[npmsearch](https://npmsearch.com) | 
+[精选npm包](https://segmentfault.com/a/1190000017461602)  
 
 2018-09-14 - [learn regex](https://github.com/ziishaned/learn-regex) | 
 [常用正则表达式](Regex(正则表达式)/常用正则表达式.md) | 
 [语法速查手册](Regex(正则表达式)/正则表达式语法速查手册.md) | 
 [在线练习](https://regex101.com/r/dmRygT/1)  
+[regexr](https://regexr.com/)  
+[Regulex](https://jex.im/regulex)
 
 2018-09-29 - [webpack](https://github.com/ChanMenglin/webpack-demo) | 
 [官网](https://www.webpackjs.com)  
