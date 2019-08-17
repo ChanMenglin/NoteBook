@@ -97,7 +97,8 @@ max_line_length = 100
 命令行：
 [命令行](命令行/命令行.md) | 
 [Apple 终端](https://support.apple.com/zh-cn/guide/terminal/welcome/mac) | 
-[Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/)
+[Microsoft PowerShell](https://docs.microsoft.com/zh-cn/powershell/) | 
+[PowerShell kit](https://github.com/ktaranov/powershell-kit)  
 
 代码编辑器：
 [VSCode](VSCode/VSCode插件.md) | [Visual Studio](https://visualstudio.microsoft.com/zh-hans/)  
