@@ -75,6 +75,9 @@ max_line_length = 100
 2019-05-01 - [HTML5&CSS3 basic (HTML5 和 CSS3 基础)](https://chanmenglin.github.io/HTML5-CSS3-basic/) | 
 [Github](https://github.com/ChanMenglin/HTML5-CSS3-basic)  
 
+2020-05-27 - [HTML5 Canvas](https://chanmenglin.github.io/Canvas/) | 
+[Github](https://github.com/ChanMenglin/Canvas)  
+
 ---
 
 ## Python  
