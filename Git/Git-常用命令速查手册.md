@@ -94,6 +94,7 @@ categories: Git 常用命令 速查手册
 `git config --global user.name "<name>"` 设置要附加到提交事务的名称  
 `git config --global user.email "<email address>"` 设置要附加到提交事务的电子邮件  
 `git config --global color.ui auto` 启用命令行输出的有用颜色  
+`git config core.ignorecase false` 射者 git 区分文件名大小写
 
 ## 创建仓库
 
