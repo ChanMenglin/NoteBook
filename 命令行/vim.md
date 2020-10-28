@@ -431,7 +431,7 @@ vim 开源配置
 [vim-go Tutorial](https://github.com/fatih/vim-go/wiki/Tutorial)  
 [fatih/vim-go-tutorial](https://github.com/fatih/vim-go-tutorial)   
 [《笨办法学Vimscript》](http://www.treelib.com/book-detail-id-47-aid-2888.html)  
-[]Practical VIM(https://www.gerardcondon.com/tools-docs/vim/practical-vim/readme.html)
+[Practical VIM](https://www.gerardcondon.com/tools-docs/vim/practical-vim/readme.html)
 [《PracticalVim》](https://vim-tips.hulin.ink) | [Github](https://github.com/flyingalex/Practical-Vim) | [zh-cn](https://github.com/flyingalex/Practical-Vim/tree/master/tips_cn)
 [VimAwesome](https://vimawesome.com)  
 [rafi/vim-config](https://github.com/rafi/vim-config)  
