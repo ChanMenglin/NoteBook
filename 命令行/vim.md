@@ -435,6 +435,13 @@ vim 开源配置
 [《PracticalVim》](https://vim-tips.hulin.ink) | [Github](https://github.com/flyingalex/Practical-Vim) | [zh-cn](https://github.com/flyingalex/Practical-Vim/tree/master/tips_cn)
 [VimAwesome](https://vimawesome.com)  
 [rafi/vim-config](https://github.com/rafi/vim-config)  
+[Vim，第三只手](https://juejin.im/post/6889952686930657287)  
+
+# vim 快捷键
+
+![vi-vim-cheat-sheet-sch.gif](./images/vi-vim-cheat-sheet-sch.gif)
+
+来源：http://blog.ngedit.com/vi-vim-cheat-sheet-sch.gif
 
 ---
 
