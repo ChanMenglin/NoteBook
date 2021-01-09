@@ -1,6 +1,9 @@
 # vim
 
-> 建议初学者读一读 [简明 VIM 练级攻略](https://coolshell.cn/articles/5426.html) 会助你更高效的学习 vim
+> 建议初学者读一读 [简明 VIM 练级攻略](https://coolshell.cn/articles/5426.html) 会助你更高效的学习 vim  
+> [给程序员的VIM速查卡](https://coolshell.cn/articles/5479.html)  
+> [vim 大冒险](http://vim-adventures.com/) 以游戏的方式学习 vim  
+> [无插件VIM编程技巧](https://coolshell.cn/articles/11312.html)  
 
 `:help` 帮助文档  
 
