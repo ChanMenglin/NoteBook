@@ -1,5 +1,7 @@
 # vim
 
+> 建议初学者读一读 [简明 VIM 练级攻略](https://coolshell.cn/articles/5426.html) 会助你更高效的学习 vim
+
 `:help` 帮助文档  
 
 ## 基础
