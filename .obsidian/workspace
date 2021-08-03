@@ -1,0 +1,142 @@
+{
+  "main": {
+    "id": "808275d06495b6b0",
+    "type": "split",
+    "children": [
+      {
+        "id": "56b4c5ea64baedac",
+        "type": "leaf",
+        "dimension": 33.44917463075586,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Docker/README.md",
+            "mode": "source"
+          }
+        },
+        "group": "60d7ed392d3ede8d"
+      },
+      {
+        "id": "e72febefc4e99c89",
+        "type": "leaf",
+        "dimension": 45.69939183318853,
+        "active": true,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Docker/README.md",
+            "mode": "preview"
+          }
+        },
+        "group": "60d7ed392d3ede8d"
+      },
+      {
+        "id": "3b56562e174c67f7",
+        "type": "leaf",
+        "dimension": 20.851433536055602,
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Docker/README.md"
+          }
+        },
+        "group": "60d7ed392d3ede8d"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d5f0d71499d1c5ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "799def631647e11f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3038ec46af62eab",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "df79c2bcd084e8cc",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "00034d03aeaa4ed1",
+    "type": "split",
+    "children": [
+      {
+        "id": "041f8c174a9ddd40",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "08e8ed95a0ba65f0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Docker/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "cb3a3518e0a9a1f1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5f490849c2997b66",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Docker/README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "lastOpenFiles": [
+    "Docker/README.md",
+    "命令行/命令行.md",
+    "命令行/vim.md",
+    "Markdown/Markdown.md"
+  ]
+}
